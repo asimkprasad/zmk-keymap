@@ -1,0 +1,207 @@
+// Copyright (c) 2026 Asim Krishna Prasad
+// SPDX-License-Identifier: MIT
+
+syntax = "proto3";
+
+// Archive format for a point-in-time snapshot of a ZMK keyboard's keymap.
+//
+// The package is NOT `zmk.*`. A protobuf package is a globally-qualified name, and
+// claiming ZMK's would be claiming ZMK published this. It did not.
+//
+// This file ships inside the wheel, alongside `zmk_studio_client/proto/keyboard.proto`,
+// so a consumer in another language can generate from it directly:
+//
+//     python3 -c 'import zmk_keymap, pathlib;
+//                 print(pathlib.Path(zmk_keymap.__file__).parent / "proto")'
+package zmk_keymap.v1;
+
+import "google/protobuf/timestamp.proto";
+import "zmk_studio_client/proto/keyboard.proto";
+
+// A point-in-time copy of one keyboard's keymap, read off the device over the
+// ZMK Studio RPC.
+//
+// Keeps the raw binding parameters alongside a decoded form, so a consumer never
+// has to re-derive the decoding and nothing is lost if the decoding is later found
+// to be wrong.
+//
+// Two things a snapshot does not cover, both because the protocol does not expose
+// them:
+//
+//   1. Encoders. The Studio RPC has no sensor bindings at all, so rotary encoder
+//      behaviour cannot be captured by any tool built on this protocol.
+//   2. The behaviors themselves. A snapshot records which behavior each key is
+//      bound to and with which parameters, but not how that behavior is defined.
+//      A keymap-defined behavior is recorded as a name and an id and nothing
+//      else, and a mod-tap's tapping-term, flavor and hold-trigger settings are
+//      not recorded for any behavior.
+//
+// So a snapshot describes a keymap built on a given firmware, not the firmware.
+// Restoring it onto a board whose firmware defines different behaviors will bind
+// keys to whatever those ids mean there. Both gaps live in firmware source, which
+// is where they have to be kept.
+message KeymapSnapshot {
+  Capture capture = 1;
+  Device device = 2;
+  repeated Layer layers = 3;
+  PhysicalLayout layout = 4;
+  // The keyboard's behavior table, exactly as the library reports it. Not
+  // redeclared here: this is the one part of a snapshot that is purely what the
+  // keyboard said, and a second copy of a schema is a second thing to keep in
+  // step. The field that decides how a binding reads used to be spelled
+  // `metadata` on the wire and `parameter_sets` here, and reconciling the two by
+  // hand is precisely the kind of work this import deletes.
+  repeated zmk_studio_client.v1.Behavior behaviors = 5;
+}
+
+// When the snapshot was taken and what read it, so a snapshot is self-describing
+// years later.
+//
+// The firmware version is absent because the protocol does not expose it:
+// GetDeviceInfoResponse carries only a name and a serial number. A snapshot can
+// therefore say which message definitions decoded it, but not which firmware
+// produced it.
+message Capture {
+  google.protobuf.Timestamp captured_at = 1;
+
+  // Version of the tool that produced this snapshot. Identifies which snapshots
+  // are suspect if a decoding bug is found later.
+  string tool_version = 2;
+
+  // Pinned commit of zmk-studio-messages whose definitions decoded this snapshot.
+  string studio_messages_revision = 3;
+}
+
+// Which keyboard this came from.
+//
+// Identified by digest rather than hardware serial, because snapshots tend to be
+// committed somewhere public and the serial is not needed to restore a keymap.
+// The digest is stable, so it still distinguishes one keyboard from another.
+message Device {
+  string name = 1;
+
+  // First 12 hex characters of sha256 over the serial number's raw bytes. Note
+  // this is not the digest of the `serial_number` field below, which holds the
+  // same bytes hex-encoded. A short unsalted digest is a stable name for a
+  // keyboard, not a secret: anyone holding the serial can confirm a match.
+  string id = 2;
+
+  // Raw hardware serial, hex-encoded. Populated only when explicitly requested.
+  string serial_number = 3;
+}
+
+message Layer {
+  // Layer id as the firmware reports it.
+  uint32 id = 1;
+
+  // Position in the order the firmware returned layers, which need not match the
+  // id: a keyboard can report FUN as id 5 ahead of SYM as id 4.
+  uint32 display_order = 2;
+
+  string name = 3;
+
+  repeated Binding bindings = 4;
+}
+
+// What one key position does on one layer.
+message Binding {
+  uint32 position = 1;
+
+  int32 behavior_id = 2;
+
+  // Display name as the keyboard reports it, e.g. "Mod-Tap". Convenience; the id
+  // is the identity.
+  string behavior_name = 3;
+
+  // Raw parameters, exactly as the keyboard reported them. These pack a modifier
+  // mask, a HID usage page and a usage into one integer: 0x08_07_0006 is LGUI
+  // plus the keyboard page plus C, i.e. hold for Cmd+C.
+  uint32 param1 = 4;
+  uint32 param2 = 5;
+
+  // Derived from the fields above for readability, e.g. "&mt LG(C) C". Not a
+  // source of truth: if the decoding is corrected, this changes and the raw
+  // parameters do not.
+  string rendered = 6;
+
+  // The same decoding, per slot, so a consumer does not have to parse `rendered`
+  // to answer "what does this key do". One entry per parameter the behavior
+  // declares, in declaration order; empty for a behavior that takes none.
+  //
+  // What this deliberately does not say is which slot is the hold and which the
+  // tap. A mod-tap declares both slots identically - two HID usages, both named
+  // "Key" - so the distinction is behavior-specific knowledge the keyboard never
+  // reports, and inventing a label here would be this tool guessing in a field
+  // that otherwise only carries what the keyboard said.
+  repeated RenderedParam params = 7;
+}
+
+// One parameter slot of one binding, decoded.
+message RenderedParam {
+  // The keyboard's own label for this slot, e.g. "Key", "Layer", "Profile".
+  // Empty when the behavior reported no parameter metadata.
+  string name = 1;
+
+  // Raw value, the same integer as the matching param1/param2 above.
+  uint32 raw = 2;
+
+  // Decoded form, e.g. "LG(C)", "Select Profile", or the bare number for a layer
+  // index. Derived, like `rendered`, and not a source of truth.
+  string decoded = 3;
+
+  // Which kind of value the keyboard declared this slot to hold. Recorded so a
+  // consumer need not re-match the raw value against the behavior table.
+  ParameterKind kind = 4;
+}
+
+// The kinds of value a parameter slot can hold, as the keyboard describes them.
+enum ParameterKind {
+  PARAMETER_KIND_UNSPECIFIED = 0;
+
+  // One specific named value, e.g. Bluetooth's "Clear All Profiles".
+  PARAMETER_KIND_CONSTANT = 1;
+
+  // Any value inside declared bounds, e.g. a Bluetooth profile number.
+  PARAMETER_KIND_RANGE = 2;
+
+  // A HID usage, bounded per usage page.
+  PARAMETER_KIND_HID_USAGE = 3;
+
+  // A layer index.
+  PARAMETER_KIND_LAYER_ID = 4;
+
+  // The behavior reported no metadata, so the value is passed through as read.
+  PARAMETER_KIND_UNDECLARED = 5;
+}
+
+// Where the keys physically sit. Reported by the firmware from its shield
+// definition, so it is only as accurate as that definition.
+//
+// Only the active layout is recorded, because every Binding.position in this
+// snapshot indexes into it. A keyboard may offer several; which one was active is
+// part of what has to be restored, so the index and the full set of names are
+// kept even though the other layouts' geometry is not.
+message PhysicalLayout {
+  string name = 1;
+  repeated KeyPosition keys = 2;
+
+  // This layout's index in the keyboard's own list.
+  uint32 active_index = 3;
+
+  // Names of every layout the keyboard offers, in its order, so `active_index`
+  // can be resolved without the keyboard present.
+  repeated string available = 4;
+}
+
+// Geometry for one key, in hundredths of a key unit: width 100 is one 1u key.
+// Rotation is in hundredths of a degree about (rotation_x, rotation_y).
+message KeyPosition {
+  uint32 position = 1;
+  int32 x = 2;
+  int32 y = 3;
+  int32 width = 4;
+  int32 height = 5;
+  int32 rotation = 6;
+  int32 rotation_x = 7;
+  int32 rotation_y = 8;
+}

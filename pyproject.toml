@@ -1,0 +1,88 @@
+[project]
+name = "zmk-keymap"
+version = "0.1.0"
+description = "Back up, restore and draw the keymap living on a ZMK keyboard."
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+readme = "README.md"
+authors = [{ name = "Asim Krishna Prasad" }]
+keywords = ["zmk", "zmk-studio", "keyboard", "keymap", "backup", "svg"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Archiving :: Backup",
+    "Topic :: System :: Hardware",
+    "Typing :: Typed",
+]
+dependencies = [
+    # The protocol: transports, framing, correlation, the read/write surface, and
+    # the model every read returns. Nothing in this package opens a port or frames
+    # a byte.
+    #
+    # Pinned to a commit, not to @main. The two repositories move together - a
+    # change to the model lands there and is adopted here - and a floating branch
+    # makes that window silently fatal: the moment the client merges, every fresh
+    # install of this tool builds against a library it has not been updated for,
+    # and the failure arrives as an AttributeError in someone's backup rather than
+    # as a resolution error. A pin turns that into an explicit commit here.
+    "zmk-studio-client @ git+https://github.com/asimkprasad/zmk-studio-client.git@8eabcdd69efe893be980a7f17d55f272786f5584",
+    # Used directly for this tool's own archive schema, which is not the client's.
+    # The generated bindings declare the compiler that produced them and validate
+    # it at import time, and protobuf 8 will reject version-7 gencode.
+    "protobuf>=7.35.1,<8",
+]
+
+[project.optional-dependencies]
+# Only needed by src/scripts/generate_snapshot_model/generate.sh.
+# Pinned so CI's regen diff check sees the exact protoc/protobuf gencode committed.
+regen = ["grpcio-tools==1.85.1"]
+
+[dependency-groups]
+dev = ["pytest>=8.0", "mypy>=1.10"]
+
+[project.scripts]
+keymap-backup = "zmk_keymap.cli:main"
+keymap-render = "zmk_keymap.cli_render:main"
+keymap-restore = "zmk_keymap.cli_restore:main"
+
+[project.urls]
+Homepage = "https://github.com/asimkprasad/zmk-keymap"
+Repository = "https://github.com/asimkprasad/zmk-keymap"
+Issues = "https://github.com/asimkprasad/zmk-keymap/issues"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["zmk_keymap*"]
+
+# The archive schema is part of the published API, so it travels in the wheel: a
+# consumer reading snapshots in another language needs the .proto itself, not a
+# description of it.
+[tool.setuptools.package-data]
+zmk_keymap = ["py.typed", "proto/*.proto", "proto/*.pyi"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = [
+    "google.protobuf",
+    "google.protobuf.*",
+]
+ignore_missing_imports = true
