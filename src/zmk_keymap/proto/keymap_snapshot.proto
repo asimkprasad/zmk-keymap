@@ -41,7 +41,7 @@ import "zmk_studio_client/proto/keyboard.proto";
 // keys to whatever those ids mean there. Both gaps live in firmware source, which
 // is where they have to be kept.
 message KeymapSnapshot {
-  Capture capture = 1;
+  SnapshotMetadata metadata = 1;
   Device device = 2;
   repeated Layer layers = 3;
   PhysicalLayout layout = 4;
@@ -54,14 +54,14 @@ message KeymapSnapshot {
   repeated zmk_studio_client.v1.Behavior behaviors = 5;
 }
 
-// When the snapshot was taken and what read it, so a snapshot is self-describing
-// years later.
+// Provenance metadata: when the snapshot was taken and what produced it, so a
+// snapshot remains self-describing years later.
 //
 // The firmware version is absent because the protocol does not expose it:
 // GetDeviceInfoResponse carries only a name and a serial number. A snapshot can
 // therefore say which message definitions decoded it, but not which firmware
 // produced it.
-message Capture {
+message SnapshotMetadata {
   google.protobuf.Timestamp captured_at = 1;
 
   // Version of the tool that produced this snapshot. Identifies which snapshots
@@ -100,11 +100,11 @@ message Layer {
 
   string name = 3;
 
-  repeated Binding bindings = 4;
+  repeated KeyBinding bindings = 4;
 }
 
 // What one key position does on one layer.
-message Binding {
+message KeyBinding {
   uint32 position = 1;
 
   int32 behavior_id = 2;
@@ -119,13 +119,13 @@ message Binding {
   uint32 param1 = 4;
   uint32 param2 = 5;
 
-  // Derived from the fields above for readability, e.g. "&mt LG(C) C". Not a
-  // source of truth: if the decoding is corrected, this changes and the raw
+  // Decoded ZMK expression derived from the fields above, e.g. "&mt LG(C) C".
+  // Not a source of truth: if the decoding is corrected, this changes and the raw
   // parameters do not.
-  string rendered = 6;
+  string decoded = 6;
 
-  // The same decoding, per slot, so a consumer does not have to parse `rendered`
-  // to answer "what does this key do". One entry per parameter the behavior
+  // Per-slot decoded arguments, so a consumer does not have to parse `decoded`
+  // to answer "what does this key do". One entry per argument the behavior
   // declares, in declaration order; empty for a behavior that takes none.
   //
   // What this deliberately does not say is which slot is the hold and which the
@@ -133,11 +133,11 @@ message Binding {
   // "Key" - so the distinction is behavior-specific knowledge the keyboard never
   // reports, and inventing a label here would be this tool guessing in a field
   // that otherwise only carries what the keyboard said.
-  repeated RenderedParam params = 7;
+  repeated BehaviorArgument arguments = 7;
 }
 
-// One parameter slot of one binding, decoded.
-message RenderedParam {
+// One concrete argument passed to a behavior on a key binding, decoded.
+message BehaviorArgument {
   // The keyboard's own label for this slot, e.g. "Key", "Layer", "Profile".
   // Empty when the behavior reported no parameter metadata.
   string name = 1;
@@ -146,38 +146,38 @@ message RenderedParam {
   uint32 raw = 2;
 
   // Decoded form, e.g. "LG(C)", "Select Profile", or the bare number for a layer
-  // index. Derived, like `rendered`, and not a source of truth.
+  // index. Derived, like `KeyBinding.decoded`, and not a source of truth.
   string decoded = 3;
 
   // Which kind of value the keyboard declared this slot to hold. Recorded so a
   // consumer need not re-match the raw value against the behavior table.
-  ParameterKind kind = 4;
+  ArgumentKind kind = 4;
 }
 
-// The kinds of value a parameter slot can hold, as the keyboard describes them.
-enum ParameterKind {
-  PARAMETER_KIND_UNSPECIFIED = 0;
+// The kinds of value a behavior argument slot can hold, as the keyboard describes them.
+enum ArgumentKind {
+  ARGUMENT_KIND_UNSPECIFIED = 0;
 
   // One specific named value, e.g. Bluetooth's "Clear All Profiles".
-  PARAMETER_KIND_CONSTANT = 1;
+  ARGUMENT_KIND_CONSTANT = 1;
 
   // Any value inside declared bounds, e.g. a Bluetooth profile number.
-  PARAMETER_KIND_RANGE = 2;
+  ARGUMENT_KIND_RANGE = 2;
 
   // A HID usage, bounded per usage page.
-  PARAMETER_KIND_HID_USAGE = 3;
+  ARGUMENT_KIND_HID_USAGE = 3;
 
   // A layer index.
-  PARAMETER_KIND_LAYER_ID = 4;
+  ARGUMENT_KIND_LAYER_ID = 4;
 
   // The behavior reported no metadata, so the value is passed through as read.
-  PARAMETER_KIND_UNDECLARED = 5;
+  ARGUMENT_KIND_UNDECLARED = 5;
 }
 
 // Where the keys physically sit. Reported by the firmware from its shield
 // definition, so it is only as accurate as that definition.
 //
-// Only the active layout is recorded, because every Binding.position in this
+// Only the active layout is recorded, because every KeyBinding.position in this
 // snapshot indexes into it. A keyboard may offer several; which one was active is
 // part of what has to be restored, so the index and the full set of names are
 // kept even though the other layouts' geometry is not.

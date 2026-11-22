@@ -2,7 +2,8 @@
 
     keymap-backup    must not reach a write      - it captures, never restores
     keymap-render    must not call a keyboard    - it draws a file
-    keymap-restore   is the only command that may do either
+    keymap-restore   may read and write          - CLI dry-run + --commit
+    keymap-ui        may read and write          - localhost UI for backup + restore
 
 **How the boundary sits across two repositories.** The protocol lives in
 `zmk-studio-client`, a separate distribution, and that library ships three areas:
@@ -18,16 +19,15 @@ not the same thing:
    `keymap_snapshot.proto` imports `keyboard.proto` so `KeymapSnapshot` reuses
    `zmk_studio_client.v1.Behavior` rather than duplicating it, which means
    generated `proto/keymap_snapshot_pb2.py` imports `zmk_studio_client.proto.keyboard_pb2`.
-   No module on the `render`, `cli_render`, `decode` or `model` path imports
-   `zmk_studio_client` or any callable/session from it, so no function on the
+   No module on the `renderer`, `cli_render`, `decoder` or `keymap_snapshot` path
+   imports `zmk_studio_client` or any callable/session from it, so no function on the
    offline path holds a reference that can call `connect()` or open a port.
 
 2. *Process `sys.modules` (checked in fresh subprocesses below):*
-   In Python, importing `zmk_keymap.cli_render` executes `zmk_keymap/__init__.py`
-   (which imports `zmk_studio_client` to offer `dump()`), and importing
-   `zmk_studio_client.proto.keyboard_pb2` executes `zmk_studio_client/__init__.py`.
-   Consequently, `zmk_studio_client`'s top-level read modules and `_pb` descriptors
-   ARE loaded into `sys.modules` at import time. What is NOT loaded into
+   `zmk_keymap/__init__.py` is intentionally empty, while importing
+   `zmk_studio_client.proto.keyboard_pb2` (via `keymap_snapshot_pb2.py`) executes
+   `zmk_studio_client/__init__.py`. Consequently, `zmk_studio_client`'s top-level
+   read modules and `_pb` descriptors ARE loaded into `sys.modules` at import time. What is NOT loaded into
    `sys.modules` is the write surface (`zmk_studio_client.writable` /
    `zmk_studio_client.writes`, loaded only by `keymap-restore`) or the third-party
    OS transport drivers (`serial`, `objc`, `Foundation`, `CoreBluetooth`, which
@@ -39,7 +39,7 @@ not the same thing:
 **No source module of this package imports `zmk_studio_client._pb`.** The client
 hands back its own model, so naming a ZMK wire message in `src/` would be reaching
 around the library's API into a private directory. Only the two below-`Keyboard`
-seam tests (`test_dump_assembly.py` and `test_restore.py`) import `zmk_studio_client._pb`,
+seam tests (`test_dump_assembly.py` and `test_restore_plan.py`) import `zmk_studio_client._pb`,
 and that list is enforced below as well.
 """
 from __future__ import annotations
@@ -47,6 +47,7 @@ from __future__ import annotations
 import ast
 import json
 import pathlib
+import re
 import subprocess
 import sys
 
@@ -140,16 +141,20 @@ def _imports_at(path: pathlib.Path) -> set[str]:
                 found.add(sub.split(".")[0])
         elif isinstance(node, ast.Import):
             for alias in node.names:
-                name = alias.name
-                if name == CLIENT_SCHEMA or name.startswith(f"{CLIENT_SCHEMA}."):
+                parts = alias.name.split(".")
+                prefixes = [
+                    ".".join(parts[:i]) for i in range(1, len(parts) + 1)
+                ]
+                if alias.name == CLIENT_SCHEMA or alias.name.startswith(
+                    f"{CLIENT_SCHEMA}."
+                ):
                     found.add(CLIENT_SCHEMA)
-                elif name == CLIENT or name.startswith(f"{CLIENT}."):
-                    found.add(CLIENT)
-                    found.add(name)
-                elif name.startswith("zmk_keymap."):
-                    sub = name.removeprefix("zmk_keymap.")
-                    found.add(sub)
-                    found.add(sub.split(".")[0])
+                elif alias.name == CLIENT or alias.name.startswith(f"{CLIENT}."):
+                    found.update(prefixes)
+                elif alias.name.startswith("zmk_keymap."):
+                    for pref in prefixes[1:]:
+                        sub = pref.removeprefix("zmk_keymap.")
+                        found.add(sub)
     return found
 
 
@@ -168,7 +173,8 @@ def _imports(module: str) -> set[str]:
 
 
 def closure(start: str) -> set[str]:
-    """Every name reachable from `start` by imports."""
+    """Every name reachable from `start` by imports (`start` must exist on disk)."""
+    assert _module_path(start) is not None, f"unknown module {start!r} in closure()"
     seen: set[str] = set()
     pending = [start]
     while pending:
@@ -185,52 +191,110 @@ def closure(start: str) -> set[str]:
 
 def test_the_backup_command_cannot_reach_a_write() -> None:
     """keymap-backup reads a keyboard. It must have no route to changing one."""
-    reached = closure("cli")
+    reached = closure("cli.backup")
     assert not (reached & WRITE_SURFACE), (
-        f"zmk_keymap.cli reaches {sorted(reached & WRITE_SURFACE)}; the capture "
+        f"zmk_keymap.cli.backup reaches {sorted(reached & WRITE_SURFACE)}; the capture "
         f"command must not be able to modify a keyboard. Reached: {sorted(reached)}")
 
 
 def test_the_package_does_not_re_export_a_write() -> None:
-    """Closes the one route a closure walk cannot see (`from . import ...`)."""
+    """`zmk_keymap/__init__.py` stays import-free so submodule imports have zero side effects."""
     imported = _imports("__init__")
-    assert not (imported & WRITE_SURFACE), (
-        f"zmk_keymap/__init__.py imports {sorted(imported & WRITE_SURFACE)}; that "
-        f"puts a write onto the package surface, where the capture path reaches it "
-        f"as a bare name. Imported: {sorted(imported)}")
+    assert imported == set(), (
+        f"zmk_keymap/__init__.py must stay free of submodule/client imports, "
+        f"found: {sorted(imported)}"
+    )
+
+
+def test_floor_8_live_keyboard_and_restore_plan_are_pure_hardware_bridges() -> None:
+    """`live_keyboard` is read-only; neither Floor 8 module touches `snapshot_store` or `keymap_renderer`."""
+    live_reached = closure("live_keyboard")
+    assert CLIENT in live_reached
+    assert not (live_reached & WRITE_SURFACE)
+    assert "keymap_renderer" not in live_reached
+    assert "snapshot_store" not in live_reached
+
+    plan_reached = closure("restore_plan")
+    assert plan_reached & WRITE_SURFACE
+    assert "keymap_renderer" not in plan_reached
+    assert "snapshot_store" not in plan_reached
 
 
 # --------------------------------------------------------------------------- #
-# the offline presentation & model paths bind no client runtime callables
+# the offline presentation & keymap_snapshot paths bind no client runtime
 # --------------------------------------------------------------------------- #
 
 def test_render_binds_no_client_runtime() -> None:
-    """`render` only touches `model` (and transitively `keyboard_pb2` descriptors)."""
-    reached = closure("render")
+    """`keymap_renderer` only touches `keymap_snapshot` (and `keyboard_pb2` descriptors)."""
+    reached = closure("keymap_renderer")
     assert CLIENT not in reached, (
-        f"zmk_keymap.render imports {CLIENT} runtime names; the presentation path "
+        f"zmk_keymap.keymap_renderer imports {CLIENT} runtime names; the presentation path "
         f"must have no call path to a connection. Reached: {sorted(reached)}")
     assert not (reached & WRITE_SURFACE)
 
 
 def test_the_render_command_binds_no_client_runtime() -> None:
     """`keymap-render` takes a path, not a port: no client runtime in its AST closure."""
-    reached = closure("cli_render")
+    reached = closure("cli.render")
+    assert "keymap_renderer" in reached
     assert CLIENT not in reached, (
-        f"zmk_keymap.cli_render imports {CLIENT} runtime names. Reached: {sorted(reached)}")
+        f"zmk_keymap.cli.render imports {CLIENT} runtime names. Reached: {sorted(reached)}")
     assert not (reached & WRITE_SURFACE)
 
 
-def test_decoding_cannot_reach_the_client_at_all() -> None:
-    """`decode` turns stored values into text; it imports neither client nor schema."""
-    reached = closure("decode")
+def test_decoding_cannot_reach_the_client_runtime() -> None:
+    """`keymap_snapshot._decoder` constructs protobuf `KeyBinding`s; never imports client runtime."""
+    reached = closure("keymap_snapshot._decoder")
     assert CLIENT not in reached
-    assert CLIENT_SCHEMA not in reached
+    assert CLIENT_SCHEMA in reached
+    assert not (reached & WRITE_SURFACE)
 
 
-def test_model_binds_only_the_client_behavior_descriptor() -> None:
-    """`zmk_keymap.model` references `zmk_studio_client.proto`, not client callables."""
-    reached = closure("model")
+def test_key_labels_keymap_diff_and_snapshot_store_bind_no_client_runtime() -> None:
+    """`keymap_renderer._key_labels`, `keymap_diff`, `snapshot_store`, and `cli._common` bind no client runtime."""
+    labels_reached = closure("keymap_renderer._key_labels")
+    assert CLIENT not in labels_reached
+    assert CLIENT_SCHEMA in labels_reached
+    assert not (labels_reached & WRITE_SURFACE)
+
+    diff_reached = closure("keymap_diff")
+    assert "proto.keymap_snapshot_pb2" in diff_reached
+    assert CLIENT not in diff_reached
+    assert not (diff_reached & WRITE_SURFACE)
+
+    store_reached = closure("snapshot_store")
+    assert "keymap_snapshot" in store_reached
+    assert CLIENT not in store_reached
+    assert not (store_reached & WRITE_SURFACE)
+
+    cli_common_reached = closure("cli._common")
+    assert "keymap_snapshot" in cli_common_reached
+    assert CLIENT not in cli_common_reached
+    assert "keymap_renderer" not in cli_common_reached
+    assert not (cli_common_reached & WRITE_SURFACE)
+
+
+def test_ui_read_worker_cannot_reach_or_load_write_surface() -> None:
+    """`keymap-ui`'s read/backup worker (`ui._hw_read`) has zero route to writes."""
+    reached = closure("ui._hw_read")
+    assert CLIENT in reached, "ui._hw_read must reach the read client (non-vacuity)"
+    assert not (reached & WRITE_SURFACE), (
+        f"ui._hw_read reaches write surface: {sorted(reached & WRITE_SURFACE)}"
+    )
+
+    loaded = _loaded_modules("import zmk_keymap.ui._hw_read")
+    assert "zmk_studio_client" in loaded
+    assert not (loaded & WRITE_SURFACE), (
+        f"ui._hw_read loaded write surface at runtime: {sorted(loaded & WRITE_SURFACE)}"
+    )
+    assert not (loaded & TRANSPORT_DRIVERS), (
+        f"ui._hw_read eagerly loaded transport drivers: {sorted(loaded & TRANSPORT_DRIVERS)}"
+    )
+
+
+def test_keymap_snapshot_binds_only_the_client_behavior_descriptor() -> None:
+    """`zmk_keymap.keymap_snapshot` references `zmk_studio_client.proto`, not client callables."""
+    reached = closure("keymap_snapshot")
     assert CLIENT not in reached
     assert CLIENT_SCHEMA in reached
     assert not (reached & WRITE_SURFACE)
@@ -242,26 +306,55 @@ def test_model_binds_only_the_client_behavior_descriptor() -> None:
 
 def test_the_restore_command_reaches_the_write_path() -> None:
     """The positive half. Without it, 'only restore can write' is unproven."""
-    reached = closure("cli_restore")
+    reached = closure("cli.restore")
     assert reached & WRITE_SURFACE, (
-        "zmk_keymap.cli_restore is the restore command and must reach the write "
+        "zmk_keymap.cli.restore is the restore command and must reach the write "
         f"path; if it does not, the import walker is not seeing real imports. "
         f"Reached: {sorted(reached)}")
 
 
 def test_the_restore_command_does_not_draw() -> None:
     """Rendering is a separate command; restore has no business importing it."""
-    assert "render" not in closure("cli_restore")
+    assert "keymap_renderer" not in closure("cli.restore")
+    assert "keymap_renderer._key_labels" not in closure("cli.restore")
 
 
-def test_exactly_one_command_can_write() -> None:
-    """Stated as a single assertion, because this is the claim the README makes."""
-    commands = {"cli": "keymap-backup", "cli_render": "keymap-render",
-                "cli_restore": "keymap-restore"}
-    writers = {name for module, name in commands.items()
-               if closure(module) & WRITE_SURFACE}
-    assert writers == {"keymap-restore"}, (
-        f"commands able to modify a keyboard: {sorted(writers)}")
+def _declared_commands() -> dict[str, str]:
+    """Parse `[project.scripts]` from `pyproject.toml` -> `{local_module: script_name}`."""
+    raw = (HERE / "pyproject.toml").read_text(encoding="utf-8")
+    in_scripts = False
+    out: dict[str, str] = {}
+    for line in raw.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("["):
+            in_scripts = stripped == "[project.scripts]"
+            continue
+        if in_scripts and "=" in stripped and not stripped.startswith("#"):
+            match = re.match(
+                r'^([A-Za-z0-9_-]+)\s*=\s*"zmk_keymap\.([A-Za-z0-9_.]+):', stripped
+            )
+            if match:
+                script_name, mod_name = match.groups()
+                out[mod_name] = script_name
+    assert out, "failed to parse [project.scripts] from pyproject.toml"
+    return out
+
+
+def test_only_restore_and_ui_commands_can_write() -> None:
+    """Every declared CLI entry point is classified; backup and render cannot write."""
+    commands = _declared_commands()
+    assert set(commands.values()) == {
+        "keymap-backup",
+        "keymap-render",
+        "keymap-restore",
+        "keymap-ui",
+    }
+    writers = {
+        name for module, name in commands.items() if closure(module) & WRITE_SURFACE
+    }
+    assert writers == {"keymap-restore", "keymap-ui"}, (
+        f"commands able to modify a keyboard: {sorted(writers)}"
+    )
 
 
 # --------------------------------------------------------------------------- #
@@ -270,14 +363,14 @@ def test_exactly_one_command_can_write() -> None:
 
 def test_the_check_would_notice_the_client_at_all() -> None:
     """A typo in the walker would make the renderer tests pass for nothing."""
-    assert CLIENT in closure("cli"), (
-        "zmk_keymap.cli is the capture command and must reach the client; if it "
+    assert CLIENT in closure("cli.backup"), (
+        "zmk_keymap.cli.backup is the capture command and must reach the client; if it "
         "does not, the import walker is not seeing real imports")
 
 
 def test_the_walker_traverses_nested_submodules() -> None:
     """Nested packages like `proto.keymap_snapshot_pb2` must not be blind spots."""
-    reached = closure("render")
+    reached = closure("keymap_renderer")
     assert "proto.keymap_snapshot_pb2" in reached
     assert CLIENT_SCHEMA in reached
 
@@ -293,10 +386,11 @@ def test_the_walker_traverses_nested_submodules() -> None:
      {"zmk_studio_client", "zmk_studio_client.connect"}),
     ("import zmk_studio_client", {"zmk_studio_client"}),
     ("from zmk_studio_client.proto import keyboard_pb2", {"zmk_studio_client.proto"}),
-    ("from . import decode", {"decode"}),
-    ("from .render import page", {"render", "render.page"}),
-    ("from .proto.keymap_snapshot_pb2 import Binding",
-     {"proto", "proto.keymap_snapshot_pb2", "proto.keymap_snapshot_pb2.Binding"}),
+    ("from . import _decoder", {"_decoder"}),
+    ("from .keymap_renderer import KeymapRenderer",
+     {"keymap_renderer", "keymap_renderer.KeymapRenderer"}),
+    ("from .proto.keymap_snapshot_pb2 import KeyBinding",
+     {"proto", "proto.keymap_snapshot_pb2", "proto.keymap_snapshot_pb2.KeyBinding"}),
     ("import json", set()),
     ("from __future__ import annotations", set()),
 ])
@@ -333,14 +427,14 @@ def _loaded_modules(import_stmt: str) -> set[str]:
 def test_runtime_sys_modules_on_cli_render_matches_documented_boundary() -> None:
     """Pin both halves of the runtime truth when `keymap-render` starts up.
 
-    1. Parent `__init__.py` execution (`zmk_keymap/__init__.py` and
-       `zmk_studio_client/__init__.py` via `zmk_studio_client.proto.keyboard_pb2`)
-       DOES load `zmk_studio_client`'s read package into `sys.modules`.
+    1. `zmk_keymap/__init__.py` is empty, while `keymap_snapshot_pb2.py` imports
+       `zmk_studio_client.proto.keyboard_pb2` (which executes `zmk_studio_client/__init__.py`),
+       loading `zmk_studio_client`'s read package into `sys.modules`.
     2. Neither the write surface (`zmk_studio_client.writable` / `.writes`) nor the
        lazy third-party transport drivers (`serial`, `objc`, `Foundation`,
        `CoreBluetooth`) are loaded.
     """
-    loaded = _loaded_modules("import zmk_keymap.cli_render")
+    loaded = _loaded_modules("import zmk_keymap.cli.render")
     assert "zmk_studio_client" in loaded
     assert "zmk_studio_client.connection" in loaded
     assert "zmk_studio_client.rpc" in loaded
@@ -351,7 +445,7 @@ def test_runtime_sys_modules_on_cli_render_matches_documented_boundary() -> None
 
 
 def test_runtime_sys_modules_on_cli_backup_never_loads_write_surface() -> None:
-    loaded = _loaded_modules("import zmk_keymap.cli")
+    loaded = _loaded_modules("import zmk_keymap.cli.backup")
     assert "zmk_studio_client" in loaded
     assert not (loaded & WRITE_SURFACE), f"backup loaded write surface: {sorted(loaded & WRITE_SURFACE)}"
     assert not (loaded & TRANSPORT_DRIVERS), (
@@ -361,10 +455,19 @@ def test_runtime_sys_modules_on_cli_backup_never_loads_write_surface() -> None:
 
 def test_runtime_sys_modules_on_cli_restore_loads_write_surface() -> None:
     """Positive runtime twin: `keymap-restore` really does load `writable` and `writes`."""
-    loaded = _loaded_modules("import zmk_keymap.cli_restore")
+    loaded = _loaded_modules("import zmk_keymap.cli.restore")
     assert WRITE_SURFACE <= loaded, f"restore missed write surface: {sorted(WRITE_SURFACE - loaded)}"
     assert not (loaded & TRANSPORT_DRIVERS), (
         f"restore eagerly loaded transport drivers at import: {sorted(loaded & TRANSPORT_DRIVERS)}"
+    )
+
+
+def test_runtime_sys_modules_on_cli_ui_loads_write_surface_without_drivers() -> None:
+    """`keymap-ui` loads the write surface for restore endpoints, but no OS drivers at import."""
+    loaded = _loaded_modules("import zmk_keymap.cli.ui")
+    assert WRITE_SURFACE <= loaded, f"ui missed write surface: {sorted(WRITE_SURFACE - loaded)}"
+    assert not (loaded & TRANSPORT_DRIVERS), (
+        f"ui eagerly loaded transport drivers at import: {sorted(loaded & TRANSPORT_DRIVERS)}"
     )
 
 
@@ -409,7 +512,7 @@ def test_only_seam_tests_import_the_clients_zmk_bindings() -> None:
         for path in test_files
         if PRIVATE in _imports_at(path)
     }
-    assert importers == {"test_dump_assembly.py", "test_restore.py"}, (
+    assert importers == {"test_dump_assembly.py", "test_restore_plan.py"}, (
         f"unexpected test files importing {PRIVATE}: {sorted(importers)}. "
         f"Tests above Keyboard/WritableKeyboard must use zmk_studio_client.model.")
 
@@ -425,10 +528,17 @@ def test_the_generated_snapshot_bindings_import_the_model_not_the_bindings() -> 
 
 
 def test_the_check_would_notice_a_private_import(tmp_path: pathlib.Path) -> None:
-    """Non-vacuity, in each syntax a violation could be written in."""
-    for source in ("from zmk_studio_client._pb import keymap_pb2",
-                   "from zmk_studio_client import _pb",
-                   "import zmk_studio_client._pb"):
+    """Non-vacuity, in each syntax a violation could be written in (plus unknown module guard)."""
+    for source in (
+        "from zmk_studio_client._pb import keymap_pb2",
+        "from zmk_studio_client import _pb",
+        "import zmk_studio_client._pb",
+        "import zmk_studio_client._pb.keymap_pb2",
+        "import zmk_studio_client._pb.keyboard_pb2 as kb",
+    ):
         probe = tmp_path / "probe.py"
         probe.write_text(source + "\n", encoding="utf-8")
         assert PRIVATE in _imports_at(probe), source
+
+    with pytest.raises(AssertionError, match="unknown module"):
+        closure("nonexistent_renamed_module")

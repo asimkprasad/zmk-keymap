@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        python-version: ["3.10", "3.12", "3.13"]
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -69,7 +69,13 @@ jobs:
 
           before_path = list(sys.path)
           import zmk_keymap
-          from zmk_keymap import dump, from_json, model, page, svg, text, to_json
+          from zmk_keymap.keymap_diff import KeymapDiff
+          from zmk_keymap.keymap_renderer import KeymapRenderer
+          from zmk_keymap.keymap_snapshot import KeymapSnapshot
+          from zmk_keymap.live_keyboard import read_keyboard
+          from zmk_keymap.restore_plan import RestorePlan
+          from zmk_keymap.snapshot_store import SnapshotStore
+          from zmk_keymap.ui.server import UiServer
 
           assert list(sys.path) == before_path, f"sys.path mutated: {sys.path}"
           assert "keymap_snapshot_pb2" not in sys.modules
@@ -79,6 +85,7 @@ jobs:
             "$RUNNER_TEMP/wheel-venv/bin/keymap-backup" --help >/dev/null
             "$RUNNER_TEMP/wheel-venv/bin/keymap-render" --help >/dev/null
             "$RUNNER_TEMP/wheel-venv/bin/keymap-restore" --help >/dev/null
+            "$RUNNER_TEMP/wheel-venv/bin/keymap-ui" --help >/dev/null
             "$RUNNER_TEMP/wheel-venv/bin/keymap-render" "$CORPUS" -o "$RUNNER_TEMP/rendered.html"
             test -s "$RUNNER_TEMP/rendered.html"
           )
@@ -90,7 +97,10 @@ jobs:
               names = set(zf.namelist())
           assert "zmk_keymap/proto/keymap_snapshot.proto" in names
           assert "zmk_keymap/proto/keymap_snapshot_pb2.pyi" in names
+          assert "zmk_keymap/ui/assets/shell.html" in names
+          assert "zmk_keymap/ui/assets/app.css" in names
+          assert "zmk_keymap/ui/assets/app.js" in names
           assert "zmk_keymap/py.typed" in names
-          assert not any(n.startswith(("scripts/", "tests/", "snapshots/")) for n in names)
+          assert not any(n.startswith(("scripts/", "tests/", "snapshots/", "undo-snapshots/")) for n in names)
           assert any(n.endswith("/licenses/LICENSE") for n in names)
           PY

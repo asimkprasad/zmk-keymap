@@ -26,29 +26,29 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from zmk_studio_client.proto import keyboard_pb2 as zmk__studio__client_dot_proto_dot_keyboard__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&zmk_keymap/proto/keymap_snapshot.proto\x12\rzmk_keymap.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a&zmk_studio_client/proto/keyboard.proto\"\xe8\x01\n\x0eKeymapSnapshot\x12\'\n\x07\x63\x61pture\x18\x01 \x01(\x0b\x32\x16.zmk_keymap.v1.Capture\x12%\n\x06\x64\x65vice\x18\x02 \x01(\x0b\x32\x15.zmk_keymap.v1.Device\x12$\n\x06layers\x18\x03 \x03(\x0b\x32\x14.zmk_keymap.v1.Layer\x12-\n\x06layout\x18\x04 \x01(\x0b\x32\x1d.zmk_keymap.v1.PhysicalLayout\x12\x31\n\tbehaviors\x18\x05 \x03(\x0b\x32\x1e.zmk_studio_client.v1.Behavior\"r\n\x07\x43\x61pture\x12/\n\x0b\x63\x61ptured_at\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x14\n\x0ctool_version\x18\x02 \x01(\t\x12 \n\x18studio_messages_revision\x18\x03 \x01(\t\"9\n\x06\x44\x65vice\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x15\n\rserial_number\x18\x03 \x01(\t\"b\n\x05Layer\x12\n\n\x02id\x18\x01 \x01(\r\x12\x15\n\rdisplay_order\x18\x02 \x01(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12(\n\x08\x62indings\x18\x04 \x03(\x0b\x32\x16.zmk_keymap.v1.Binding\"\xa7\x01\n\x07\x42inding\x12\x10\n\x08position\x18\x01 \x01(\r\x12\x13\n\x0b\x62\x65havior_id\x18\x02 \x01(\x05\x12\x15\n\rbehavior_name\x18\x03 \x01(\t\x12\x0e\n\x06param1\x18\x04 \x01(\r\x12\x0e\n\x06param2\x18\x05 \x01(\r\x12\x10\n\x08rendered\x18\x06 \x01(\t\x12,\n\x06params\x18\x07 \x03(\x0b\x32\x1c.zmk_keymap.v1.RenderedParam\"g\n\rRenderedParam\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03raw\x18\x02 \x01(\r\x12\x0f\n\x07\x64\x65\x63oded\x18\x03 \x01(\t\x12*\n\x04kind\x18\x04 \x01(\x0e\x32\x1c.zmk_keymap.v1.ParameterKind\"q\n\x0ePhysicalLayout\x12\x0c\n\x04name\x18\x01 \x01(\t\x12(\n\x04keys\x18\x02 \x03(\x0b\x32\x1a.zmk_keymap.v1.KeyPosition\x12\x14\n\x0c\x61\x63tive_index\x18\x03 \x01(\r\x12\x11\n\tavailable\x18\x04 \x03(\t\"\x8e\x01\n\x0bKeyPosition\x12\x10\n\x08position\x18\x01 \x01(\r\x12\t\n\x01x\x18\x02 \x01(\x05\x12\t\n\x01y\x18\x03 \x01(\x05\x12\r\n\x05width\x18\x04 \x01(\x05\x12\x0e\n\x06height\x18\x05 \x01(\x05\x12\x10\n\x08rotation\x18\x06 \x01(\x05\x12\x12\n\nrotation_x\x18\x07 \x01(\x05\x12\x12\n\nrotation_y\x18\x08 \x01(\x05*\xc0\x01\n\rParameterKind\x12\x1e\n\x1aPARAMETER_KIND_UNSPECIFIED\x10\x00\x12\x1b\n\x17PARAMETER_KIND_CONSTANT\x10\x01\x12\x18\n\x14PARAMETER_KIND_RANGE\x10\x02\x12\x1c\n\x18PARAMETER_KIND_HID_USAGE\x10\x03\x12\x1b\n\x17PARAMETER_KIND_LAYER_ID\x10\x04\x12\x1d\n\x19PARAMETER_KIND_UNDECLARED\x10\x05\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&zmk_keymap/proto/keymap_snapshot.proto\x12\rzmk_keymap.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a&zmk_studio_client/proto/keyboard.proto\"\xf2\x01\n\x0eKeymapSnapshot\x12\x31\n\x08metadata\x18\x01 \x01(\x0b\x32\x1f.zmk_keymap.v1.SnapshotMetadata\x12%\n\x06\x64\x65vice\x18\x02 \x01(\x0b\x32\x15.zmk_keymap.v1.Device\x12$\n\x06layers\x18\x03 \x03(\x0b\x32\x14.zmk_keymap.v1.Layer\x12-\n\x06layout\x18\x04 \x01(\x0b\x32\x1d.zmk_keymap.v1.PhysicalLayout\x12\x31\n\tbehaviors\x18\x05 \x03(\x0b\x32\x1e.zmk_studio_client.v1.Behavior\"{\n\x10SnapshotMetadata\x12/\n\x0b\x63\x61ptured_at\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x14\n\x0ctool_version\x18\x02 \x01(\t\x12 \n\x18studio_messages_revision\x18\x03 \x01(\t\"9\n\x06\x44\x65vice\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\t\x12\x15\n\rserial_number\x18\x03 \x01(\t\"e\n\x05Layer\x12\n\n\x02id\x18\x01 \x01(\r\x12\x15\n\rdisplay_order\x18\x02 \x01(\r\x12\x0c\n\x04name\x18\x03 \x01(\t\x12+\n\x08\x62indings\x18\x04 \x03(\x0b\x32\x19.zmk_keymap.v1.KeyBinding\"\xaf\x01\n\nKeyBinding\x12\x10\n\x08position\x18\x01 \x01(\r\x12\x13\n\x0b\x62\x65havior_id\x18\x02 \x01(\x05\x12\x15\n\rbehavior_name\x18\x03 \x01(\t\x12\x0e\n\x06param1\x18\x04 \x01(\r\x12\x0e\n\x06param2\x18\x05 \x01(\r\x12\x0f\n\x07\x64\x65\x63oded\x18\x06 \x01(\t\x12\x32\n\targuments\x18\x07 \x03(\x0b\x32\x1f.zmk_keymap.v1.BehaviorArgument\"i\n\x10\x42\x65haviorArgument\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03raw\x18\x02 \x01(\r\x12\x0f\n\x07\x64\x65\x63oded\x18\x03 \x01(\t\x12)\n\x04kind\x18\x04 \x01(\x0e\x32\x1b.zmk_keymap.v1.ArgumentKind\"q\n\x0ePhysicalLayout\x12\x0c\n\x04name\x18\x01 \x01(\t\x12(\n\x04keys\x18\x02 \x03(\x0b\x32\x1a.zmk_keymap.v1.KeyPosition\x12\x14\n\x0c\x61\x63tive_index\x18\x03 \x01(\r\x12\x11\n\tavailable\x18\x04 \x03(\t\"\x8e\x01\n\x0bKeyPosition\x12\x10\n\x08position\x18\x01 \x01(\r\x12\t\n\x01x\x18\x02 \x01(\x05\x12\t\n\x01y\x18\x03 \x01(\x05\x12\r\n\x05width\x18\x04 \x01(\x05\x12\x0e\n\x06height\x18\x05 \x01(\x05\x12\x10\n\x08rotation\x18\x06 \x01(\x05\x12\x12\n\nrotation_x\x18\x07 \x01(\x05\x12\x12\n\nrotation_y\x18\x08 \x01(\x05*\xb9\x01\n\x0c\x41rgumentKind\x12\x1d\n\x19\x41RGUMENT_KIND_UNSPECIFIED\x10\x00\x12\x1a\n\x16\x41RGUMENT_KIND_CONSTANT\x10\x01\x12\x17\n\x13\x41RGUMENT_KIND_RANGE\x10\x02\x12\x1b\n\x17\x41RGUMENT_KIND_HID_USAGE\x10\x03\x12\x1a\n\x16\x41RGUMENT_KIND_LAYER_ID\x10\x04\x12\x1c\n\x18\x41RGUMENT_KIND_UNDECLARED\x10\x05\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'zmk_keymap.proto.keymap_snapshot_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_PARAMETERKIND']._serialized_start=1176
-  _globals['_PARAMETERKIND']._serialized_end=1368
+  _globals['_ARGUMENTKIND']._serialized_start=1208
+  _globals['_ARGUMENTKIND']._serialized_end=1393
   _globals['_KEYMAPSNAPSHOT']._serialized_start=131
-  _globals['_KEYMAPSNAPSHOT']._serialized_end=363
-  _globals['_CAPTURE']._serialized_start=365
-  _globals['_CAPTURE']._serialized_end=479
-  _globals['_DEVICE']._serialized_start=481
-  _globals['_DEVICE']._serialized_end=538
-  _globals['_LAYER']._serialized_start=540
-  _globals['_LAYER']._serialized_end=638
-  _globals['_BINDING']._serialized_start=641
-  _globals['_BINDING']._serialized_end=808
-  _globals['_RENDEREDPARAM']._serialized_start=810
-  _globals['_RENDEREDPARAM']._serialized_end=913
-  _globals['_PHYSICALLAYOUT']._serialized_start=915
-  _globals['_PHYSICALLAYOUT']._serialized_end=1028
-  _globals['_KEYPOSITION']._serialized_start=1031
-  _globals['_KEYPOSITION']._serialized_end=1173
+  _globals['_KEYMAPSNAPSHOT']._serialized_end=373
+  _globals['_SNAPSHOTMETADATA']._serialized_start=375
+  _globals['_SNAPSHOTMETADATA']._serialized_end=498
+  _globals['_DEVICE']._serialized_start=500
+  _globals['_DEVICE']._serialized_end=557
+  _globals['_LAYER']._serialized_start=559
+  _globals['_LAYER']._serialized_end=660
+  _globals['_KEYBINDING']._serialized_start=663
+  _globals['_KEYBINDING']._serialized_end=838
+  _globals['_BEHAVIORARGUMENT']._serialized_start=840
+  _globals['_BEHAVIORARGUMENT']._serialized_end=945
+  _globals['_PHYSICALLAYOUT']._serialized_start=947
+  _globals['_PHYSICALLAYOUT']._serialized_end=1060
+  _globals['_KEYPOSITION']._serialized_start=1063
+  _globals['_KEYPOSITION']._serialized_end=1205
 # @@protoc_insertion_point(module_scope)

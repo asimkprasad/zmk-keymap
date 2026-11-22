@@ -19,7 +19,6 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
     "Topic :: System :: Archiving :: Backup",
     "Topic :: System :: Hardware",
     "Typing :: Typed",
@@ -51,9 +50,10 @@ regen = ["grpcio-tools==1.85.1"]
 dev = ["pytest>=8.0", "mypy>=1.10"]
 
 [project.scripts]
-keymap-backup = "zmk_keymap.cli:main"
-keymap-render = "zmk_keymap.cli_render:main"
-keymap-restore = "zmk_keymap.cli_restore:main"
+keymap-backup = "zmk_keymap.cli.backup:main"
+keymap-render = "zmk_keymap.cli.render:main"
+keymap-restore = "zmk_keymap.cli.restore:main"
+keymap-ui = "zmk_keymap.cli.ui:main"
 
 [project.urls]
 Homepage = "https://github.com/asimkprasad/zmk-keymap"
@@ -72,7 +72,19 @@ include = ["zmk_keymap*"]
 # consumer reading snapshots in another language needs the .proto itself, not a
 # description of it.
 [tool.setuptools.package-data]
-zmk_keymap = ["py.typed", "proto/*.proto", "proto/*.pyi"]
+zmk_keymap = [
+    "py.typed",
+    "proto/*.proto",
+    "proto/*.pyi",
+    "ui/assets/*.html",
+    "ui/assets/*.css",
+    "ui/assets/*.js",
+]
+"zmk_keymap.ui" = [
+    "assets/*.html",
+    "assets/*.css",
+    "assets/*.js",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

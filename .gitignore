@@ -11,4 +11,5 @@ dist/
 .coverage
 .DS_Store
 snapshots/
-restore-backups/
+undo-snapshots/
+.worktrees/
