@@ -90,7 +90,7 @@ def test_nothing_reaches_above_this_repository() -> None:
 
 def test_a_snapshot_records_the_version_of_the_tool_that_wrote_it() -> None:
     """A rename used to turn this into "unknown" with no error anywhere."""
-    from zmk_keymap.snapshot import _tool_version
+    from zmk_keymap.keymap_snapshot import _tool_version
 
     assert _tool_version() != "unknown", (
         "the installed package cannot find its own version; _tool_version() is "
@@ -136,3 +136,69 @@ def test_the_client_dependency_names_a_public_https_commit() -> None:
     assert re.fullmatch(r"[0-9a-f]{40}", reference), (
         f"zmk-studio-client is pinned to {reference!r}; it must name a full commit "
         f"sha, so that updating the library is a commit in this repository")
+
+
+def test_ui_assets_are_resolvable_via_importlib_resources() -> None:
+    """`keymap-ui` loads its HTML/CSS/JS via `importlib.resources.files('zmk_keymap.ui')`."""
+    from importlib import resources
+
+    asset_root = resources.files("zmk_keymap.ui").joinpath("assets")
+    for asset_name in ("shell.html", "app.css", "app.js"):
+        asset = asset_root.joinpath(asset_name)
+        assert asset.is_file(), f"missing package resource zmk_keymap/ui/assets/{asset_name}"
+        assert asset.read_text(encoding="utf-8").strip()
+
+
+def test_ci_workflow_imports_wheel_paths_and_python_classifiers_stay_in_sync() -> None:
+    """Guard against CI workflow drift on refactors (`ci.yml` vs `src/` & `pyproject.toml`)."""
+    ci_text = (HERE / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+    pyproject_text = (HERE / "pyproject.toml").read_text(encoding="utf-8")
+
+    # 1. Every `assert "<pkg_path>" in names` in ci.yml must exist under `src/`.
+    wheel_paths = re.findall(r'assert "(zmk_keymap/[^"]+)" in names', ci_text)
+    assert wheel_paths, "failed to parse wheel member assertions from ci.yml"
+    for rel in wheel_paths:
+        assert (HERE / "src" / rel).is_file(), f"ci.yml asserts missing wheel file: {rel}"
+
+    # 2. Every `from zmk_keymap... import ...` in ci.yml must actually resolve.
+    import_lines = [
+        line.strip()
+        for line in ci_text.splitlines()
+        if line.strip().startswith(("import zmk_keymap", "from zmk_keymap"))
+    ]
+    assert import_lines, "failed to parse zmk_keymap import smoke lines from ci.yml"
+    ns: dict[str, object] = {}
+    exec("\n".join(import_lines), ns)  # noqa: S102
+
+    # 3. Python 3.x classifiers in pyproject.toml must match the CI test matrix.
+    classifiers = set(
+        re.findall(r'"Programming Language :: Python :: (3\.\d+)"', pyproject_text)
+    )
+    matrix_match = re.search(r"python-version:\s*\[([^\]]+)\]", ci_text)
+    assert matrix_match, "failed to parse python-version matrix from ci.yml"
+    matrix_versions = set(re.findall(r'"(3\.\d+)"', matrix_match.group(1)))
+    assert classifiers == matrix_versions, (
+        f"pyproject classifiers {sorted(classifiers)} != CI matrix {sorted(matrix_versions)}"
+    )
+
+
+def test_keymap_snapshot_submessage_views_cannot_mutate_snapshot_or_sha256() -> None:
+    """Mutating returned protobuf views (`s.device.name = ...`) must not mutate `s`."""
+    import hashlib
+
+    from zmk_keymap.keymap_snapshot import KeymapSnapshot
+
+    corpus = HERE / "tests" / "data" / "sofle-2026-11-10.json"
+    snap = KeymapSnapshot.from_json(corpus.read_text(encoding="utf-8"))
+    original_sha = snap.sha256()
+    original_device_name = snap.device.name
+    original_layer_name = snap.layers[0].name
+
+    snap.device.name = "Mutated"
+    snap.layers[0].name = "MutatedLayer"
+    snap.behaviors[0].display_name = "MutatedBehavior"
+
+    assert snap.device.name == original_device_name
+    assert snap.layers[0].name == original_layer_name
+    assert snap.sha256() == original_sha
+    assert hashlib.sha256(snap.to_json().encode("utf-8")).hexdigest() == original_sha

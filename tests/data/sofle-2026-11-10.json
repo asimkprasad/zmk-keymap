@@ -408,11 +408,6 @@
       ]
     }
   ],
-  "capture": {
-    "captured_at": "2026-11-10T07:17:48.249126Z",
-    "studio_messages_revision": "6cb4c283e76209d59c45fbcb218800cd19e9339d",
-    "tool_version": "0.1.0"
-  },
   "device": {
     "id": "7192385c3c06",
     "name": "Sofle",
@@ -422,1090 +417,1090 @@
     {
       "bindings": [
         {
-          "behavior_id": 21,
-          "behavior_name": "Mod-Tap",
-          "param1": 34013237,
-          "param2": 458793,
-          "params": [
+          "arguments": [
             {
               "decoded": "LS(GRAVE)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013237
             },
             {
               "decoded": "ESC",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458793
             }
           ],
-          "position": 0,
-          "rendered": "&mt LS(GRAVE) ESC"
-        },
-        {
           "behavior_id": 21,
           "behavior_name": "Mod-Tap",
-          "param1": 134676510,
-          "param2": 458782,
-          "params": [
+          "decoded": "&mt LS(GRAVE) ESC",
+          "param1": 34013237,
+          "param2": 458793,
+          "position": 0
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N1)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676510
             },
             {
               "decoded": "N1",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458782
             }
           ],
-          "position": 1,
-          "rendered": "&mt LG(N1) N1"
-        },
-        {
           "behavior_id": 21,
           "behavior_name": "Mod-Tap",
-          "param1": 134676511,
-          "param2": 458783,
-          "params": [
+          "decoded": "&mt LG(N1) N1",
+          "param1": 134676510,
+          "param2": 458782,
+          "position": 1
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N2)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676511
             },
             {
               "decoded": "N2",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458783
             }
           ],
-          "position": 2,
-          "rendered": "&mt LG(N2) N2"
-        },
-        {
           "behavior_id": 21,
           "behavior_name": "Mod-Tap",
-          "param1": 134676512,
-          "param2": 458784,
-          "params": [
+          "decoded": "&mt LG(N2) N2",
+          "param1": 134676511,
+          "param2": 458783,
+          "position": 2
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N3)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676512
             },
             {
               "decoded": "N3",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458784
             }
           ],
-          "position": 3,
-          "rendered": "&mt LG(N3) N3"
-        },
-        {
           "behavior_id": 21,
           "behavior_name": "Mod-Tap",
-          "param1": 134676513,
-          "param2": 458785,
-          "params": [
+          "decoded": "&mt LG(N3) N3",
+          "param1": 134676512,
+          "param2": 458784,
+          "position": 3
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N4)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676513
             },
             {
               "decoded": "N4",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458785
             }
           ],
-          "position": 4,
-          "rendered": "&mt LG(N4) N4"
-        },
-        {
           "behavior_id": 21,
           "behavior_name": "Mod-Tap",
-          "param1": 134676514,
-          "param2": 458786,
-          "params": [
+          "decoded": "&mt LG(N4) N4",
+          "param1": 134676513,
+          "param2": 458785,
+          "position": 4
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N5)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676514
             },
             {
               "decoded": "N5",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458786
             }
           ],
-          "position": 5,
-          "rendered": "&mt LG(N5) N5"
-        },
-        {
           "behavior_id": 21,
           "behavior_name": "Mod-Tap",
-          "param1": 134676515,
-          "param2": 458787,
-          "params": [
+          "decoded": "&mt LG(N5) N5",
+          "param1": 134676514,
+          "param2": 458786,
+          "position": 5
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N6)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676515
             },
             {
               "decoded": "N6",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458787
             }
           ],
-          "position": 6,
-          "rendered": "&mt LG(N6) N6"
-        },
-        {
           "behavior_id": 21,
           "behavior_name": "Mod-Tap",
-          "param1": 134676516,
-          "param2": 458788,
-          "params": [
+          "decoded": "&mt LG(N6) N6",
+          "param1": 134676515,
+          "param2": 458787,
+          "position": 6
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N7)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676516
             },
             {
               "decoded": "N7",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458788
             }
           ],
-          "position": 7,
-          "rendered": "&mt LG(N7) N7"
-        },
-        {
           "behavior_id": 21,
           "behavior_name": "Mod-Tap",
-          "param1": 134676517,
-          "param2": 458789,
-          "params": [
+          "decoded": "&mt LG(N7) N7",
+          "param1": 134676516,
+          "param2": 458788,
+          "position": 7
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N8)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676517
             },
             {
               "decoded": "N8",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458789
             }
           ],
-          "position": 8,
-          "rendered": "&mt LG(N8) N8"
-        },
-        {
           "behavior_id": 21,
           "behavior_name": "Mod-Tap",
-          "param1": 134676518,
-          "param2": 458790,
-          "params": [
+          "decoded": "&mt LG(N8) N8",
+          "param1": 134676517,
+          "param2": 458789,
+          "position": 8
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N9)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676518
             },
             {
               "decoded": "N9",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458790
             }
           ],
-          "position": 9,
-          "rendered": "&mt LG(N9) N9"
+          "behavior_id": 21,
+          "behavior_name": "Mod-Tap",
+          "decoded": "&mt LG(N9) N9",
+          "param1": 134676518,
+          "param2": 458790,
+          "position": 9
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 458791,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "N0",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458791
             }
           ],
-          "position": 10,
-          "rendered": "&kp N0"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458798,
+          "decoded": "&kp N0",
+          "param1": 458791,
           "param2": 0,
-          "params": [
+          "position": 10
+        },
+        {
+          "arguments": [
             {
               "decoded": "EQUAL",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458798
             }
           ],
-          "position": 11,
-          "rendered": "&kp EQUAL"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458795,
+          "decoded": "&kp EQUAL",
+          "param1": 458798,
           "param2": 0,
-          "params": [
+          "position": 11
+        },
+        {
+          "arguments": [
             {
               "decoded": "TAB",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458795
             }
           ],
-          "position": 12,
-          "rendered": "&kp TAB"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458772,
+          "decoded": "&kp TAB",
+          "param1": 458795,
           "param2": 0,
-          "params": [
+          "position": 12
+        },
+        {
+          "arguments": [
             {
               "decoded": "Q",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458772
             }
           ],
-          "position": 13,
-          "rendered": "&kp Q"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458778,
+          "decoded": "&kp Q",
+          "param1": 458772,
           "param2": 0,
-          "params": [
+          "position": 13
+        },
+        {
+          "arguments": [
             {
               "decoded": "W",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458778
             }
           ],
-          "position": 14,
-          "rendered": "&kp W"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458760,
+          "decoded": "&kp W",
+          "param1": 458778,
           "param2": 0,
-          "params": [
+          "position": 14
+        },
+        {
+          "arguments": [
             {
               "decoded": "E",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458760
             }
           ],
-          "position": 15,
-          "rendered": "&kp E"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458773,
+          "decoded": "&kp E",
+          "param1": 458760,
           "param2": 0,
-          "params": [
+          "position": 15
+        },
+        {
+          "arguments": [
             {
               "decoded": "R",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458773
             }
           ],
-          "position": 16,
-          "rendered": "&kp R"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp R",
+          "param1": 458773,
+          "param2": 0,
+          "position": 16
         },
         {
-          "behavior_id": 21,
-          "behavior_name": "Mod-Tap",
-          "param1": 134676503,
-          "param2": 458775,
-          "params": [
+          "arguments": [
             {
               "decoded": "LG(T)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676503
             },
             {
               "decoded": "T",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458775
             }
           ],
-          "position": 17,
-          "rendered": "&mt LG(T) T"
+          "behavior_id": 21,
+          "behavior_name": "Mod-Tap",
+          "decoded": "&mt LG(T) T",
+          "param1": 134676503,
+          "param2": 458775,
+          "position": 17
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 458780,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "Y",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458780
             }
           ],
-          "position": 18,
-          "rendered": "&kp Y"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458776,
+          "decoded": "&kp Y",
+          "param1": 458780,
           "param2": 0,
-          "params": [
+          "position": 18
+        },
+        {
+          "arguments": [
             {
               "decoded": "U",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458776
             }
           ],
-          "position": 19,
-          "rendered": "&kp U"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458764,
+          "decoded": "&kp U",
+          "param1": 458776,
           "param2": 0,
-          "params": [
+          "position": 19
+        },
+        {
+          "arguments": [
             {
               "decoded": "I",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458764
             }
           ],
-          "position": 20,
-          "rendered": "&kp I"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458770,
+          "decoded": "&kp I",
+          "param1": 458764,
           "param2": 0,
-          "params": [
+          "position": 20
+        },
+        {
+          "arguments": [
             {
               "decoded": "O",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458770
             }
           ],
-          "position": 21,
-          "rendered": "&kp O"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458771,
+          "decoded": "&kp O",
+          "param1": 458770,
           "param2": 0,
-          "params": [
+          "position": 21
+        },
+        {
+          "arguments": [
             {
               "decoded": "P",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458771
             }
           ],
-          "position": 22,
-          "rendered": "&kp P"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458797,
+          "decoded": "&kp P",
+          "param1": 458771,
           "param2": 0,
-          "params": [
+          "position": 22
+        },
+        {
+          "arguments": [
             {
               "decoded": "MINUS",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458797
             }
           ],
-          "position": 23,
-          "rendered": "&kp MINUS"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp MINUS",
+          "param1": 458797,
+          "param2": 0,
+          "position": 23
         },
         {
-          "behavior_id": 20,
-          "behavior_name": "Layer-Tap",
-          "param1": 5,
-          "param2": 458976,
-          "params": [
+          "arguments": [
             {
               "decoded": "5",
-              "kind": "PARAMETER_KIND_LAYER_ID",
+              "kind": "ARGUMENT_KIND_LAYER_ID",
               "name": "Layer",
               "raw": 5
             },
             {
               "decoded": "LCTRL",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458976
             }
           ],
-          "position": 24,
-          "rendered": "&lt 5 LCTRL"
+          "behavior_id": 20,
+          "behavior_name": "Layer-Tap",
+          "decoded": "&lt 5 LCTRL",
+          "param1": 5,
+          "param2": 458976,
+          "position": 24
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 458756,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "A",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458756
             }
           ],
-          "position": 25,
-          "rendered": "&kp A"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458774,
+          "decoded": "&kp A",
+          "param1": 458756,
           "param2": 0,
-          "params": [
+          "position": 25
+        },
+        {
+          "arguments": [
             {
               "decoded": "S",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458774
             }
           ],
-          "position": 26,
-          "rendered": "&kp S"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458759,
+          "decoded": "&kp S",
+          "param1": 458774,
           "param2": 0,
-          "params": [
+          "position": 26
+        },
+        {
+          "arguments": [
             {
               "decoded": "D",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458759
             }
           ],
-          "position": 27,
-          "rendered": "&kp D"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458761,
+          "decoded": "&kp D",
+          "param1": 458759,
           "param2": 0,
-          "params": [
+          "position": 27
+        },
+        {
+          "arguments": [
             {
               "decoded": "F",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458761
             }
           ],
-          "position": 28,
-          "rendered": "&kp F"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458762,
+          "decoded": "&kp F",
+          "param1": 458761,
           "param2": 0,
-          "params": [
+          "position": 28
+        },
+        {
+          "arguments": [
             {
               "decoded": "G",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458762
             }
           ],
-          "position": 29,
-          "rendered": "&kp G"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458763,
+          "decoded": "&kp G",
+          "param1": 458762,
           "param2": 0,
-          "params": [
+          "position": 29
+        },
+        {
+          "arguments": [
             {
               "decoded": "H",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458763
             }
           ],
-          "position": 30,
-          "rendered": "&kp H"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458765,
+          "decoded": "&kp H",
+          "param1": 458763,
           "param2": 0,
-          "params": [
+          "position": 30
+        },
+        {
+          "arguments": [
             {
               "decoded": "J",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458765
             }
           ],
-          "position": 31,
-          "rendered": "&kp J"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458766,
+          "decoded": "&kp J",
+          "param1": 458765,
           "param2": 0,
-          "params": [
+          "position": 31
+        },
+        {
+          "arguments": [
             {
               "decoded": "K",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458766
             }
           ],
-          "position": 32,
-          "rendered": "&kp K"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp K",
+          "param1": 458766,
+          "param2": 0,
+          "position": 32
         },
         {
-          "behavior_id": 21,
-          "behavior_name": "Mod-Tap",
-          "param1": 168230916,
-          "param2": 458767,
-          "params": [
+          "arguments": [
             {
               "decoded": "LS(LG(A))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 168230916
             },
             {
               "decoded": "L",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458767
             }
           ],
-          "position": 33,
-          "rendered": "&mt LS(LG(A)) L"
+          "behavior_id": 21,
+          "behavior_name": "Mod-Tap",
+          "decoded": "&mt LS(LG(A)) L",
+          "param1": 168230916,
+          "param2": 458767,
+          "position": 33
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 458803,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "SEMI",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458803
             }
           ],
-          "position": 34,
-          "rendered": "&kp SEMI"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp SEMI",
+          "param1": 458803,
+          "param2": 0,
+          "position": 34
         },
         {
-          "behavior_id": 20,
-          "behavior_name": "Layer-Tap",
-          "param1": 1,
-          "param2": 458804,
-          "params": [
+          "arguments": [
             {
               "decoded": "1",
-              "kind": "PARAMETER_KIND_LAYER_ID",
+              "kind": "ARGUMENT_KIND_LAYER_ID",
               "name": "Layer",
               "raw": 1
             },
             {
               "decoded": "SQT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458804
             }
           ],
-          "position": 35,
-          "rendered": "&lt 1 SQT"
+          "behavior_id": 20,
+          "behavior_name": "Layer-Tap",
+          "decoded": "&lt 1 SQT",
+          "param1": 1,
+          "param2": 458804,
+          "position": 35
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 458977,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "LSHFT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458977
             }
           ],
-          "position": 36,
-          "rendered": "&kp LSHFT"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458781,
+          "decoded": "&kp LSHFT",
+          "param1": 458977,
           "param2": 0,
-          "params": [
+          "position": 36
+        },
+        {
+          "arguments": [
             {
               "decoded": "Z",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458781
             }
           ],
-          "position": 37,
-          "rendered": "&kp Z"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458779,
+          "decoded": "&kp Z",
+          "param1": 458781,
           "param2": 0,
-          "params": [
+          "position": 37
+        },
+        {
+          "arguments": [
             {
               "decoded": "X",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458779
             }
           ],
-          "position": 38,
-          "rendered": "&kp X"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp X",
+          "param1": 458779,
+          "param2": 0,
+          "position": 38
         },
         {
-          "behavior_id": 21,
-          "behavior_name": "Mod-Tap",
-          "param1": 134676486,
-          "param2": 458758,
-          "params": [
+          "arguments": [
             {
               "decoded": "LG(C)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676486
             },
             {
               "decoded": "C",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458758
             }
           ],
-          "position": 39,
-          "rendered": "&mt LG(C) C"
-        },
-        {
           "behavior_id": 21,
           "behavior_name": "Mod-Tap",
-          "param1": 134676505,
-          "param2": 458777,
-          "params": [
+          "decoded": "&mt LG(C) C",
+          "param1": 134676486,
+          "param2": 458758,
+          "position": 39
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(V)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676505
             },
             {
               "decoded": "V",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458777
             }
           ],
-          "position": 40,
-          "rendered": "&mt LG(V) V"
+          "behavior_id": 21,
+          "behavior_name": "Mod-Tap",
+          "decoded": "&mt LG(V) V",
+          "param1": 134676505,
+          "param2": 458777,
+          "position": 40
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 458757,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "B",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458757
             }
           ],
-          "position": 41,
-          "rendered": "&kp B"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 786658,
+          "decoded": "&kp B",
+          "param1": 458757,
           "param2": 0,
-          "params": [
+          "position": 41
+        },
+        {
+          "arguments": [
             {
               "decoded": "C_MUTE",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 786658
             }
           ],
-          "position": 42,
-          "rendered": "&kp C_MUTE"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458828,
+          "decoded": "&kp C_MUTE",
+          "param1": 786658,
           "param2": 0,
-          "params": [
+          "position": 42
+        },
+        {
+          "arguments": [
             {
               "decoded": "DEL",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458828
             }
           ],
-          "position": 43,
-          "rendered": "&kp DEL"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458769,
+          "decoded": "&kp DEL",
+          "param1": 458828,
           "param2": 0,
-          "params": [
+          "position": 43
+        },
+        {
+          "arguments": [
             {
               "decoded": "N",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458769
             }
           ],
-          "position": 44,
-          "rendered": "&kp N"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458768,
+          "decoded": "&kp N",
+          "param1": 458769,
           "param2": 0,
-          "params": [
+          "position": 44
+        },
+        {
+          "arguments": [
             {
               "decoded": "M",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458768
             }
           ],
-          "position": 45,
-          "rendered": "&kp M"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458806,
+          "decoded": "&kp M",
+          "param1": 458768,
           "param2": 0,
-          "params": [
+          "position": 45
+        },
+        {
+          "arguments": [
             {
               "decoded": "COMMA",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458806
             }
           ],
-          "position": 46,
-          "rendered": "&kp COMMA"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458807,
+          "decoded": "&kp COMMA",
+          "param1": 458806,
           "param2": 0,
-          "params": [
+          "position": 46
+        },
+        {
+          "arguments": [
             {
               "decoded": "DOT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458807
             }
           ],
-          "position": 47,
-          "rendered": "&kp DOT"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458808,
+          "decoded": "&kp DOT",
+          "param1": 458807,
           "param2": 0,
-          "params": [
+          "position": 47
+        },
+        {
+          "arguments": [
             {
               "decoded": "FSLH",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458808
             }
           ],
-          "position": 48,
-          "rendered": "&kp FSLH"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458981,
+          "decoded": "&kp FSLH",
+          "param1": 458808,
           "param2": 0,
-          "params": [
+          "position": 48
+        },
+        {
+          "arguments": [
             {
               "decoded": "RSHFT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458981
             }
           ],
-          "position": 49,
-          "rendered": "&kp RSHFT"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458976,
+          "decoded": "&kp RSHFT",
+          "param1": 458981,
           "param2": 0,
-          "params": [
+          "position": 49
+        },
+        {
+          "arguments": [
             {
               "decoded": "LCTRL",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458976
             }
           ],
-          "position": 50,
-          "rendered": "&kp LCTRL"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458978,
+          "decoded": "&kp LCTRL",
+          "param1": 458976,
           "param2": 0,
-          "params": [
+          "position": 50
+        },
+        {
+          "arguments": [
             {
               "decoded": "LALT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458978
             }
           ],
-          "position": 51,
-          "rendered": "&kp LALT"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458979,
+          "decoded": "&kp LALT",
+          "param1": 458978,
           "param2": 0,
-          "params": [
+          "position": 51
+        },
+        {
+          "arguments": [
             {
               "decoded": "LGUI",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458979
             }
           ],
-          "position": 52,
-          "rendered": "&kp LGUI"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp LGUI",
+          "param1": 458979,
+          "param2": 0,
+          "position": 52
         },
         {
-          "behavior_id": 20,
-          "behavior_name": "Layer-Tap",
-          "param1": 4,
-          "param2": 458792,
-          "params": [
+          "arguments": [
             {
               "decoded": "4",
-              "kind": "PARAMETER_KIND_LAYER_ID",
+              "kind": "ARGUMENT_KIND_LAYER_ID",
               "name": "Layer",
               "raw": 4
             },
             {
               "decoded": "RET",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458792
             }
           ],
-          "position": 53,
-          "rendered": "&lt 4 RET"
-        },
-        {
           "behavior_id": 20,
           "behavior_name": "Layer-Tap",
-          "param1": 5,
-          "param2": 458885,
-          "params": [
+          "decoded": "&lt 4 RET",
+          "param1": 4,
+          "param2": 458792,
+          "position": 53
+        },
+        {
+          "arguments": [
             {
               "decoded": "5",
-              "kind": "PARAMETER_KIND_LAYER_ID",
+              "kind": "ARGUMENT_KIND_LAYER_ID",
               "name": "Layer",
               "raw": 5
             },
             {
               "decoded": "KP_COMMA",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458885
             }
           ],
-          "position": 54,
-          "rendered": "&lt 5 KP_COMMA"
-        },
-        {
           "behavior_id": 20,
           "behavior_name": "Layer-Tap",
-          "param1": 2,
-          "param2": 458807,
-          "params": [
+          "decoded": "&lt 5 KP_COMMA",
+          "param1": 5,
+          "param2": 458885,
+          "position": 54
+        },
+        {
+          "arguments": [
             {
               "decoded": "2",
-              "kind": "PARAMETER_KIND_LAYER_ID",
+              "kind": "ARGUMENT_KIND_LAYER_ID",
               "name": "Layer",
               "raw": 2
             },
             {
               "decoded": "DOT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458807
             }
           ],
-          "position": 55,
-          "rendered": "&lt 2 DOT"
+          "behavior_id": 20,
+          "behavior_name": "Layer-Tap",
+          "decoded": "&lt 2 DOT",
+          "param1": 2,
+          "param2": 458807,
+          "position": 55
         },
         {
-          "behavior_id": 21,
-          "behavior_name": "Mod-Tap",
-          "param1": 67567658,
-          "param2": 458794,
-          "params": [
+          "arguments": [
             {
               "decoded": "LA(BSPC)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 67567658
             },
             {
               "decoded": "BSPC",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458794
             }
           ],
-          "position": 56,
-          "rendered": "&mt LA(BSPC) BSPC"
+          "behavior_id": 21,
+          "behavior_name": "Mod-Tap",
+          "decoded": "&mt LA(BSPC) BSPC",
+          "param1": 67567658,
+          "param2": 458794,
+          "position": 56
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 458796,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "SPACE",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458796
             }
           ],
-          "position": 57,
-          "rendered": "&kp SPACE"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458983,
+          "decoded": "&kp SPACE",
+          "param1": 458796,
           "param2": 0,
-          "params": [
+          "position": 57
+        },
+        {
+          "arguments": [
             {
               "decoded": "RGUI",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458983
             }
           ],
-          "position": 58,
-          "rendered": "&kp RGUI"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp RGUI",
+          "param1": 458983,
+          "param2": 0,
+          "position": 58
         },
         {
-          "behavior_id": 20,
-          "behavior_name": "Layer-Tap",
-          "param1": 3,
-          "param2": 458851,
-          "params": [
+          "arguments": [
             {
               "decoded": "3",
-              "kind": "PARAMETER_KIND_LAYER_ID",
+              "kind": "ARGUMENT_KIND_LAYER_ID",
               "name": "Layer",
               "raw": 3
             },
             {
               "decoded": "KP_DOT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458851
             }
           ],
-          "position": 59,
-          "rendered": "&lt 3 KP_DOT"
+          "behavior_id": 20,
+          "behavior_name": "Layer-Tap",
+          "decoded": "&lt 3 KP_DOT",
+          "param1": 3,
+          "param2": 458851,
+          "position": 59
         }
       ],
       "display_order": 0,
@@ -1515,607 +1510,607 @@
     {
       "bindings": [
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 0,
-          "rendered": "&trans"
+          "position": 0
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 1,
-          "rendered": "&trans"
+          "position": 1
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 2,
-          "rendered": "&trans"
+          "position": 2
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 3,
-          "rendered": "&trans"
+          "position": 3
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 4,
-          "rendered": "&trans"
+          "position": 4
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 5,
-          "rendered": "&trans"
+          "position": 5
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 6,
-          "rendered": "&trans"
+          "position": 6
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 7,
-          "rendered": "&trans"
+          "position": 7
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 8,
-          "rendered": "&trans"
+          "position": 8
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 9,
-          "rendered": "&trans"
+          "position": 9
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 10,
-          "rendered": "&trans"
+          "position": 10
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 11,
-          "rendered": "&trans"
+          "position": 11
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 12,
-          "rendered": "&none"
+          "position": 12
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 84344856,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "LC(LA(U))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 84344856
             }
           ],
-          "position": 13,
-          "rendered": "&kp LC(LA(U))"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 14,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 15,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 84344844,
+          "decoded": "&kp LC(LA(U))",
+          "param1": 84344856,
           "param2": 0,
-          "params": [
+          "position": 13
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 14
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 15
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LA(I))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 84344844
             }
           ],
-          "position": 16,
-          "rendered": "&kp LC(LA(I))"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 17,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 18,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 19,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 20,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 21,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 22,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 23,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 24,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 84344912,
+          "decoded": "&kp LC(LA(I))",
+          "param1": 84344844,
           "param2": 0,
-          "params": [
+          "position": 16
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 17
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 18
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 19
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 20
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 21
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 22
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 23
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 24
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LA(LEFT))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 84344912
             }
           ],
-          "position": 25,
-          "rendered": "&kp LC(LA(LEFT))"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 84344872,
+          "decoded": "&kp LC(LA(LEFT))",
+          "param1": 84344912,
           "param2": 0,
-          "params": [
+          "position": 25
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LA(RET))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 84344872
             }
           ],
-          "position": 26,
-          "rendered": "&kp LC(LA(RET))"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 84344914,
+          "decoded": "&kp LC(LA(RET))",
+          "param1": 84344872,
           "param2": 0,
-          "params": [
+          "position": 26
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LA(UP))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 84344914
             }
           ],
-          "position": 27,
-          "rendered": "&kp LC(LA(UP))"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 84344911,
+          "decoded": "&kp LC(LA(UP))",
+          "param1": 84344914,
           "param2": 0,
-          "params": [
+          "position": 27
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LA(RIGHT))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 84344911
             }
           ],
-          "position": 28,
-          "rendered": "&kp LC(LA(RIGHT))"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 29,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 30,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 31,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 32,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 33,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 34,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 35,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 36,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 84344845,
+          "decoded": "&kp LC(LA(RIGHT))",
+          "param1": 84344911,
           "param2": 0,
-          "params": [
+          "position": 28
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 29
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 30
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 31
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 32
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 33
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 34
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 35
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 36
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LA(J))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 84344845
             }
           ],
-          "position": 37,
-          "rendered": "&kp LC(LA(J))"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 38,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 84344913,
+          "decoded": "&kp LC(LA(J))",
+          "param1": 84344845,
           "param2": 0,
-          "params": [
+          "position": 37
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 38
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LA(DOWN))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 84344913
             }
           ],
-          "position": 39,
-          "rendered": "&kp LC(LA(DOWN))"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 84344846,
+          "decoded": "&kp LC(LA(DOWN))",
+          "param1": 84344913,
           "param2": 0,
-          "params": [
+          "position": 39
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LA(K))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 84344846
             }
           ],
-          "position": 40,
-          "rendered": "&kp LC(LA(K))"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp LC(LA(K))",
+          "param1": 84344846,
+          "param2": 0,
+          "position": 40
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 41,
-          "rendered": "&none"
+          "position": 41
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 42,
-          "rendered": "&trans"
+          "position": 42
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 43,
-          "rendered": "&trans"
+          "position": 43
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 44,
-          "rendered": "&none"
+          "position": 44
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 45,
-          "rendered": "&none"
+          "position": 45
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 46,
-          "rendered": "&none"
+          "position": 46
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 47,
-          "rendered": "&none"
+          "position": 47
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 48,
-          "rendered": "&none"
+          "position": 48
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 49,
-          "rendered": "&none"
+          "position": 49
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 50,
-          "rendered": "&trans"
+          "position": 50
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 51,
-          "rendered": "&trans"
+          "position": 51
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 52,
-          "rendered": "&none"
+          "position": 52
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 53,
-          "rendered": "&none"
+          "position": 53
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 54,
-          "rendered": "&none"
+          "position": 54
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 55,
-          "rendered": "&none"
+          "position": 55
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 56,
-          "rendered": "&none"
+          "position": 56
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 57,
-          "rendered": "&none"
+          "position": 57
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 58,
-          "rendered": "&none"
+          "position": 58
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 59,
-          "rendered": "&none"
+          "position": 59
         }
       ],
       "display_order": 1,
@@ -2125,768 +2120,768 @@
     {
       "bindings": [
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 0,
-          "rendered": "&trans"
+          "position": 0
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 1,
-          "rendered": "&trans"
+          "position": 1
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 2,
-          "rendered": "&trans"
+          "position": 2
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 3,
-          "rendered": "&trans"
+          "position": 3
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 4,
-          "rendered": "&trans"
+          "position": 4
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 5,
-          "rendered": "&trans"
+          "position": 5
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 6,
-          "rendered": "&trans"
+          "position": 6
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 7,
-          "rendered": "&trans"
+          "position": 7
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 8,
-          "rendered": "&trans"
+          "position": 8
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 9,
-          "rendered": "&trans"
+          "position": 9
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 10,
-          "rendered": "&trans"
+          "position": 10
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 11,
-          "rendered": "&trans"
+          "position": 11
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 12,
-          "rendered": "&none"
+          "position": 12
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 34013214,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "LS(N1)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013214
             }
           ],
-          "position": 13,
-          "rendered": "&kp LS(N1)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013215,
+          "decoded": "&kp LS(N1)",
+          "param1": 34013214,
           "param2": 0,
-          "params": [
+          "position": 13
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N2)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013215
             }
           ],
-          "position": 14,
-          "rendered": "&kp LS(N2)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013216,
+          "decoded": "&kp LS(N2)",
+          "param1": 34013215,
           "param2": 0,
-          "params": [
+          "position": 14
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N3)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013216
             }
           ],
-          "position": 15,
-          "rendered": "&kp LS(N3)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013217,
+          "decoded": "&kp LS(N3)",
+          "param1": 34013216,
           "param2": 0,
-          "params": [
+          "position": 15
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N4)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013217
             }
           ],
-          "position": 16,
-          "rendered": "&kp LS(N4)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013218,
+          "decoded": "&kp LS(N4)",
+          "param1": 34013217,
           "param2": 0,
-          "params": [
+          "position": 16
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N5)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013218
             }
           ],
-          "position": 17,
-          "rendered": "&kp LS(N5)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013219,
+          "decoded": "&kp LS(N5)",
+          "param1": 34013218,
           "param2": 0,
-          "params": [
+          "position": 17
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N6)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013219
             }
           ],
-          "position": 18,
-          "rendered": "&kp LS(N6)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013220,
+          "decoded": "&kp LS(N6)",
+          "param1": 34013219,
           "param2": 0,
-          "params": [
+          "position": 18
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N7)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013220
             }
           ],
-          "position": 19,
-          "rendered": "&kp LS(N7)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013221,
+          "decoded": "&kp LS(N7)",
+          "param1": 34013220,
           "param2": 0,
-          "params": [
+          "position": 19
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N8)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013221
             }
           ],
-          "position": 20,
-          "rendered": "&kp LS(N8)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013222,
+          "decoded": "&kp LS(N8)",
+          "param1": 34013221,
           "param2": 0,
-          "params": [
+          "position": 20
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N9)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013222
             }
           ],
-          "position": 21,
-          "rendered": "&kp LS(N9)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013223,
+          "decoded": "&kp LS(N9)",
+          "param1": 34013222,
           "param2": 0,
-          "params": [
+          "position": 21
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N0)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013223
             }
           ],
-          "position": 22,
-          "rendered": "&kp LS(N0)"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 23,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 24,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676510,
+          "decoded": "&kp LS(N0)",
+          "param1": 34013223,
           "param2": 0,
-          "params": [
+          "position": 22
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 23
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 24
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N1)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676510
             }
           ],
-          "position": 25,
-          "rendered": "&kp LG(N1)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676511,
+          "decoded": "&kp LG(N1)",
+          "param1": 134676510,
           "param2": 0,
-          "params": [
+          "position": 25
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N2)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676511
             }
           ],
-          "position": 26,
-          "rendered": "&kp LG(N2)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676512,
+          "decoded": "&kp LG(N2)",
+          "param1": 134676511,
           "param2": 0,
-          "params": [
+          "position": 26
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N3)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676512
             }
           ],
-          "position": 27,
-          "rendered": "&kp LG(N3)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676513,
+          "decoded": "&kp LG(N3)",
+          "param1": 134676512,
           "param2": 0,
-          "params": [
+          "position": 27
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N4)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676513
             }
           ],
-          "position": 28,
-          "rendered": "&kp LG(N4)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676514,
+          "decoded": "&kp LG(N4)",
+          "param1": 134676513,
           "param2": 0,
-          "params": [
+          "position": 28
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N5)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676514
             }
           ],
-          "position": 29,
-          "rendered": "&kp LG(N5)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013230,
+          "decoded": "&kp LG(N5)",
+          "param1": 134676514,
           "param2": 0,
-          "params": [
+          "position": 29
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(EQUAL)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013230
             }
           ],
-          "position": 30,
-          "rendered": "&kp LS(EQUAL)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458782,
+          "decoded": "&kp LS(EQUAL)",
+          "param1": 34013230,
           "param2": 0,
-          "params": [
+          "position": 30
+        },
+        {
+          "arguments": [
             {
               "decoded": "N1",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458782
             }
           ],
-          "position": 31,
-          "rendered": "&kp N1"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458783,
+          "decoded": "&kp N1",
+          "param1": 458782,
           "param2": 0,
-          "params": [
+          "position": 31
+        },
+        {
+          "arguments": [
             {
               "decoded": "N2",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458783
             }
           ],
-          "position": 32,
-          "rendered": "&kp N2"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458784,
+          "decoded": "&kp N2",
+          "param1": 458783,
           "param2": 0,
-          "params": [
+          "position": 32
+        },
+        {
+          "arguments": [
             {
               "decoded": "N3",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458784
             }
           ],
-          "position": 33,
-          "rendered": "&kp N3"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458785,
+          "decoded": "&kp N3",
+          "param1": 458784,
           "param2": 0,
-          "params": [
+          "position": 33
+        },
+        {
+          "arguments": [
             {
               "decoded": "N4",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458785
             }
           ],
-          "position": 34,
-          "rendered": "&kp N4"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458786,
+          "decoded": "&kp N4",
+          "param1": 458785,
           "param2": 0,
-          "params": [
+          "position": 34
+        },
+        {
+          "arguments": [
             {
               "decoded": "N5",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458786
             }
           ],
-          "position": 35,
-          "rendered": "&kp N5"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 36,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676515,
+          "decoded": "&kp N5",
+          "param1": 458786,
           "param2": 0,
-          "params": [
+          "position": 35
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 36
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N6)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676515
             }
           ],
-          "position": 37,
-          "rendered": "&kp LG(N6)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676516,
+          "decoded": "&kp LG(N6)",
+          "param1": 134676515,
           "param2": 0,
-          "params": [
+          "position": 37
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N7)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676516
             }
           ],
-          "position": 38,
-          "rendered": "&kp LG(N7)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676517,
+          "decoded": "&kp LG(N7)",
+          "param1": 134676516,
           "param2": 0,
-          "params": [
+          "position": 38
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N8)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676517
             }
           ],
-          "position": 39,
-          "rendered": "&kp LG(N8)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676518,
+          "decoded": "&kp LG(N8)",
+          "param1": 134676517,
           "param2": 0,
-          "params": [
+          "position": 39
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N9)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676518
             }
           ],
-          "position": 40,
-          "rendered": "&kp LG(N9)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676519,
+          "decoded": "&kp LG(N9)",
+          "param1": 134676518,
           "param2": 0,
-          "params": [
+          "position": 40
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N0)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676519
             }
           ],
-          "position": 41,
-          "rendered": "&kp LG(N0)"
-        },
-        {
-          "behavior_id": 26,
-          "behavior_name": "Transparent",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 42,
-          "rendered": "&trans"
-        },
-        {
-          "behavior_id": 26,
-          "behavior_name": "Transparent",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 43,
-          "rendered": "&trans"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458798,
+          "decoded": "&kp LG(N0)",
+          "param1": 134676519,
           "param2": 0,
-          "params": [
+          "position": 41
+        },
+        {
+          "arguments": [],
+          "behavior_id": 26,
+          "behavior_name": "Transparent",
+          "decoded": "&trans",
+          "param1": 0,
+          "param2": 0,
+          "position": 42
+        },
+        {
+          "arguments": [],
+          "behavior_id": 26,
+          "behavior_name": "Transparent",
+          "decoded": "&trans",
+          "param1": 0,
+          "param2": 0,
+          "position": 43
+        },
+        {
+          "arguments": [
             {
               "decoded": "EQUAL",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458798
             }
           ],
-          "position": 44,
-          "rendered": "&kp EQUAL"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458787,
+          "decoded": "&kp EQUAL",
+          "param1": 458798,
           "param2": 0,
-          "params": [
+          "position": 44
+        },
+        {
+          "arguments": [
             {
               "decoded": "N6",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458787
             }
           ],
-          "position": 45,
-          "rendered": "&kp N6"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458788,
+          "decoded": "&kp N6",
+          "param1": 458787,
           "param2": 0,
-          "params": [
+          "position": 45
+        },
+        {
+          "arguments": [
             {
               "decoded": "N7",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458788
             }
           ],
-          "position": 46,
-          "rendered": "&kp N7"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458789,
+          "decoded": "&kp N7",
+          "param1": 458788,
           "param2": 0,
-          "params": [
+          "position": 46
+        },
+        {
+          "arguments": [
             {
               "decoded": "N8",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458789
             }
           ],
-          "position": 47,
-          "rendered": "&kp N8"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458790,
+          "decoded": "&kp N8",
+          "param1": 458789,
           "param2": 0,
-          "params": [
+          "position": 47
+        },
+        {
+          "arguments": [
             {
               "decoded": "N9",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458790
             }
           ],
-          "position": 48,
-          "rendered": "&kp N9"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458791,
+          "decoded": "&kp N9",
+          "param1": 458790,
           "param2": 0,
-          "params": [
+          "position": 48
+        },
+        {
+          "arguments": [
             {
               "decoded": "N0",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458791
             }
           ],
-          "position": 49,
-          "rendered": "&kp N0"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp N0",
+          "param1": 458791,
+          "param2": 0,
+          "position": 49
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 50,
-          "rendered": "&none"
+          "position": 50
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 51,
-          "rendered": "&none"
+          "position": 51
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 52,
-          "rendered": "&none"
+          "position": 52
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 53,
-          "rendered": "&none"
+          "position": 53
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 54,
-          "rendered": "&none"
+          "position": 54
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 55,
-          "rendered": "&none"
+          "position": 55
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 56,
-          "rendered": "&trans"
+          "position": 56
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 57,
-          "rendered": "&trans"
+          "position": 57
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 58,
-          "rendered": "&trans"
+          "position": 58
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 59,
-          "rendered": "&trans"
+          "position": 59
         }
       ],
       "display_order": 2,
@@ -2896,729 +2891,729 @@
     {
       "bindings": [
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 0,
-          "rendered": "&trans"
+          "position": 0
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 1,
-          "rendered": "&trans"
+          "position": 1
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 2,
-          "rendered": "&trans"
+          "position": 2
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 3,
-          "rendered": "&trans"
+          "position": 3
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 4,
-          "rendered": "&trans"
+          "position": 4
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 5,
-          "rendered": "&trans"
+          "position": 5
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 6,
-          "rendered": "&trans"
+          "position": 6
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 7,
-          "rendered": "&trans"
+          "position": 7
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 8,
-          "rendered": "&trans"
+          "position": 8
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 9,
-          "rendered": "&trans"
+          "position": 9
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 10,
-          "rendered": "&trans"
+          "position": 10
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 11,
-          "rendered": "&trans"
+          "position": 11
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 12,
-          "rendered": "&none"
+          "position": 12
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 13,
-          "rendered": "&none"
+          "position": 13
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 14,
-          "rendered": "&none"
+          "position": 14
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 15,
-          "rendered": "&none"
+          "position": 15
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 16,
-          "rendered": "&none"
+          "position": 16
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 17,
-          "rendered": "&none"
+          "position": 17
         },
         {
-          "behavior_id": 24,
-          "behavior_name": "Underglow",
-          "param1": 0,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "Toggle On/Off",
-              "kind": "PARAMETER_KIND_CONSTANT",
+              "kind": "ARGUMENT_KIND_CONSTANT",
               "name": "Toggle On/Off",
               "raw": 0
             }
           ],
-          "position": 18,
-          "rendered": "&rgb_ug Toggle On/Off"
-        },
-        {
           "behavior_id": 24,
           "behavior_name": "Underglow",
-          "param1": 11,
+          "decoded": "&rgb_ug Toggle On/Off",
+          "param1": 0,
           "param2": 0,
-          "params": [
+          "position": 18
+        },
+        {
+          "arguments": [
             {
               "decoded": "Next Effect",
-              "kind": "PARAMETER_KIND_CONSTANT",
+              "kind": "ARGUMENT_KIND_CONSTANT",
               "name": "Next Effect",
               "raw": 11
             }
           ],
-          "position": 19,
-          "rendered": "&rgb_ug Next Effect"
-        },
-        {
           "behavior_id": 24,
           "behavior_name": "Underglow",
-          "param1": 3,
+          "decoded": "&rgb_ug Next Effect",
+          "param1": 11,
           "param2": 0,
-          "params": [
+          "position": 19
+        },
+        {
+          "arguments": [
             {
               "decoded": "Hue Up",
-              "kind": "PARAMETER_KIND_CONSTANT",
+              "kind": "ARGUMENT_KIND_CONSTANT",
               "name": "Hue Up",
               "raw": 3
             }
           ],
-          "position": 20,
-          "rendered": "&rgb_ug Hue Up"
-        },
-        {
           "behavior_id": 24,
           "behavior_name": "Underglow",
-          "param1": 5,
+          "decoded": "&rgb_ug Hue Up",
+          "param1": 3,
           "param2": 0,
-          "params": [
+          "position": 20
+        },
+        {
+          "arguments": [
             {
               "decoded": "Saturation Up",
-              "kind": "PARAMETER_KIND_CONSTANT",
+              "kind": "ARGUMENT_KIND_CONSTANT",
               "name": "Saturation Up",
               "raw": 5
             }
           ],
-          "position": 21,
-          "rendered": "&rgb_ug Saturation Up"
+          "behavior_id": 24,
+          "behavior_name": "Underglow",
+          "decoded": "&rgb_ug Saturation Up",
+          "param1": 5,
+          "param2": 0,
+          "position": 21
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 22,
-          "rendered": "&none"
+          "position": 22
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 23,
-          "rendered": "&none"
+          "position": 23
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 24,
-          "rendered": "&none"
+          "position": 24
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 134676527,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "LG(LBKT)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676527
             }
           ],
-          "position": 25,
-          "rendered": "&kp LG(LBKT)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676528,
+          "decoded": "&kp LG(LBKT)",
+          "param1": 134676527,
           "param2": 0,
-          "params": [
+          "position": 25
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(RBKT)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676528
             }
           ],
-          "position": 26,
-          "rendered": "&kp LG(RBKT)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 50790443,
+          "decoded": "&kp LG(RBKT)",
+          "param1": 134676528,
           "param2": 0,
-          "params": [
+          "position": 26
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LS(TAB))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 50790443
             }
           ],
-          "position": 27,
-          "rendered": "&kp LC(LS(TAB))"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 17236011,
+          "decoded": "&kp LC(LS(TAB))",
+          "param1": 50790443,
           "param2": 0,
-          "params": [
+          "position": 27
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(TAB)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 17236011
             }
           ],
-          "position": 28,
-          "rendered": "&kp LC(TAB)"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp LC(TAB)",
+          "param1": 17236011,
+          "param2": 0,
+          "position": 28
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 29,
-          "rendered": "&none"
+          "position": 29
         },
         {
-          "behavior_id": 19,
-          "behavior_name": "External Power",
-          "param1": 2,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "2",
-              "kind": "PARAMETER_KIND_UNDECLARED",
+              "kind": "ARGUMENT_KIND_UNDECLARED",
               "name": "",
               "raw": 2
             }
           ],
-          "position": 30,
-          "rendered": "&ext_power 2"
+          "behavior_id": 19,
+          "behavior_name": "External Power",
+          "decoded": "&ext_power 2",
+          "param1": 2,
+          "param2": 0,
+          "position": 30
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 786614,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "C_PREV",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 786614
             }
           ],
-          "position": 31,
-          "rendered": "&kp C_PREV"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 786666,
+          "decoded": "&kp C_PREV",
+          "param1": 786614,
           "param2": 0,
-          "params": [
+          "position": 31
+        },
+        {
+          "arguments": [
             {
               "decoded": "C_VOL_DN",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 786666
             }
           ],
-          "position": 32,
-          "rendered": "&kp C_VOL_DN"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 786665,
+          "decoded": "&kp C_VOL_DN",
+          "param1": 786666,
           "param2": 0,
-          "params": [
+          "position": 32
+        },
+        {
+          "arguments": [
             {
               "decoded": "C_VOL_UP",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 786665
             }
           ],
-          "position": 33,
-          "rendered": "&kp C_VOL_UP"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 786613,
+          "decoded": "&kp C_VOL_UP",
+          "param1": 786665,
           "param2": 0,
-          "params": [
+          "position": 33
+        },
+        {
+          "arguments": [
             {
               "decoded": "C_NEXT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 786613
             }
           ],
-          "position": 34,
-          "rendered": "&kp C_NEXT"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp C_NEXT",
+          "param1": 786613,
+          "param2": 0,
+          "position": 34
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 35,
-          "rendered": "&none"
+          "position": 35
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 36,
-          "rendered": "&none"
+          "position": 36
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 37,
-          "rendered": "&none"
+          "position": 37
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 38,
-          "rendered": "&none"
+          "position": 38
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 39,
-          "rendered": "&none"
+          "position": 39
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 40,
-          "rendered": "&none"
+          "position": 40
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 41,
-          "rendered": "&none"
+          "position": 41
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 42,
-          "rendered": "&trans"
+          "position": 42
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 43,
-          "rendered": "&trans"
+          "position": 43
         },
         {
-          "behavior_id": 23,
-          "behavior_name": "Output Selection",
-          "param1": 0,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "Toggle Outputs",
-              "kind": "PARAMETER_KIND_CONSTANT",
+              "kind": "ARGUMENT_KIND_CONSTANT",
               "name": "Toggle Outputs",
               "raw": 0
             }
           ],
-          "position": 44,
-          "rendered": "&out Toggle Outputs"
+          "behavior_id": 23,
+          "behavior_name": "Output Selection",
+          "decoded": "&out Toggle Outputs",
+          "param1": 0,
+          "param2": 0,
+          "position": 44
         },
         {
-          "behavior_id": 17,
-          "behavior_name": "Bluetooth",
-          "param1": 3,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "Select Profile",
-              "kind": "PARAMETER_KIND_CONSTANT",
+              "kind": "ARGUMENT_KIND_CONSTANT",
               "name": "Select Profile",
               "raw": 3
             },
             {
               "decoded": "0",
-              "kind": "PARAMETER_KIND_RANGE",
+              "kind": "ARGUMENT_KIND_RANGE",
               "name": "Profile",
               "raw": 0
             }
           ],
-          "position": 45,
-          "rendered": "&bt Select Profile 0"
-        },
-        {
           "behavior_id": 17,
           "behavior_name": "Bluetooth",
+          "decoded": "&bt Select Profile 0",
           "param1": 3,
-          "param2": 1,
-          "params": [
+          "param2": 0,
+          "position": 45
+        },
+        {
+          "arguments": [
             {
               "decoded": "Select Profile",
-              "kind": "PARAMETER_KIND_CONSTANT",
+              "kind": "ARGUMENT_KIND_CONSTANT",
               "name": "Select Profile",
               "raw": 3
             },
             {
               "decoded": "1",
-              "kind": "PARAMETER_KIND_RANGE",
+              "kind": "ARGUMENT_KIND_RANGE",
               "name": "Profile",
               "raw": 1
             }
           ],
-          "position": 46,
-          "rendered": "&bt Select Profile 1"
-        },
-        {
           "behavior_id": 17,
           "behavior_name": "Bluetooth",
+          "decoded": "&bt Select Profile 1",
           "param1": 3,
-          "param2": 2,
-          "params": [
+          "param2": 1,
+          "position": 46
+        },
+        {
+          "arguments": [
             {
               "decoded": "Select Profile",
-              "kind": "PARAMETER_KIND_CONSTANT",
+              "kind": "ARGUMENT_KIND_CONSTANT",
               "name": "Select Profile",
               "raw": 3
             },
             {
               "decoded": "2",
-              "kind": "PARAMETER_KIND_RANGE",
+              "kind": "ARGUMENT_KIND_RANGE",
               "name": "Profile",
               "raw": 2
             }
           ],
-          "position": 47,
-          "rendered": "&bt Select Profile 2"
-        },
-        {
           "behavior_id": 17,
           "behavior_name": "Bluetooth",
+          "decoded": "&bt Select Profile 2",
           "param1": 3,
-          "param2": 3,
-          "params": [
+          "param2": 2,
+          "position": 47
+        },
+        {
+          "arguments": [
             {
               "decoded": "Select Profile",
-              "kind": "PARAMETER_KIND_CONSTANT",
+              "kind": "ARGUMENT_KIND_CONSTANT",
               "name": "Select Profile",
               "raw": 3
             },
             {
               "decoded": "3",
-              "kind": "PARAMETER_KIND_RANGE",
+              "kind": "ARGUMENT_KIND_RANGE",
               "name": "Profile",
               "raw": 3
             }
           ],
-          "position": 48,
-          "rendered": "&bt Select Profile 3"
-        },
-        {
           "behavior_id": 17,
           "behavior_name": "Bluetooth",
-          "param1": 0,
-          "param2": 0,
-          "params": [
+          "decoded": "&bt Select Profile 3",
+          "param1": 3,
+          "param2": 3,
+          "position": 48
+        },
+        {
+          "arguments": [
             {
               "decoded": "Clear Selected Profile",
-              "kind": "PARAMETER_KIND_CONSTANT",
+              "kind": "ARGUMENT_KIND_CONSTANT",
               "name": "Clear Selected Profile",
               "raw": 0
             }
           ],
-          "position": 49,
-          "rendered": "&bt Clear Selected Profile"
+          "behavior_id": 17,
+          "behavior_name": "Bluetooth",
+          "decoded": "&bt Clear Selected Profile",
+          "param1": 0,
+          "param2": 0,
+          "position": 49
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 50,
-          "rendered": "&none"
+          "position": 50
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 51,
-          "rendered": "&none"
+          "position": 51
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 52,
-          "rendered": "&none"
+          "position": 52
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 53,
-          "rendered": "&none"
+          "position": 53
         },
         {
-          "behavior_id": 14,
-          "behavior_name": "To Layer",
-          "param1": 0,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "0",
-              "kind": "PARAMETER_KIND_LAYER_ID",
+              "kind": "ARGUMENT_KIND_LAYER_ID",
               "name": "Layer",
               "raw": 0
             }
           ],
-          "position": 54,
-          "rendered": "&to 0"
+          "behavior_id": 14,
+          "behavior_name": "To Layer",
+          "decoded": "&to 0",
+          "param1": 0,
+          "param2": 0,
+          "position": 54
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 786615,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "C_STOP",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 786615
             }
           ],
-          "position": 55,
-          "rendered": "&kp C_STOP"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 786637,
+          "decoded": "&kp C_STOP",
+          "param1": 786615,
           "param2": 0,
-          "params": [
+          "position": 55
+        },
+        {
+          "arguments": [
             {
               "decoded": "C_PP",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 786637
             }
           ],
-          "position": 56,
-          "rendered": "&kp C_PP"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 786658,
+          "decoded": "&kp C_PP",
+          "param1": 786637,
           "param2": 0,
-          "params": [
+          "position": 56
+        },
+        {
+          "arguments": [
             {
               "decoded": "C_MUTE",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 786658
             }
           ],
-          "position": 57,
-          "rendered": "&kp C_MUTE"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp C_MUTE",
+          "param1": 786658,
+          "param2": 0,
+          "position": 57
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 58,
-          "rendered": "&trans"
+          "position": 58
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 59,
-          "rendered": "&trans"
+          "position": 59
         }
       ],
       "display_order": 3,
@@ -3628,796 +3623,796 @@
     {
       "bindings": [
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 0,
-          "rendered": "&trans"
+          "position": 0
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 458810,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "F1",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458810
             }
           ],
-          "position": 1,
-          "rendered": "&kp F1"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458811,
+          "decoded": "&kp F1",
+          "param1": 458810,
           "param2": 0,
-          "params": [
+          "position": 1
+        },
+        {
+          "arguments": [
             {
               "decoded": "F2",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458811
             }
           ],
-          "position": 2,
-          "rendered": "&kp F2"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458812,
+          "decoded": "&kp F2",
+          "param1": 458811,
           "param2": 0,
-          "params": [
+          "position": 2
+        },
+        {
+          "arguments": [
             {
               "decoded": "F3",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458812
             }
           ],
-          "position": 3,
-          "rendered": "&kp F3"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458813,
+          "decoded": "&kp F3",
+          "param1": 458812,
           "param2": 0,
-          "params": [
+          "position": 3
+        },
+        {
+          "arguments": [
             {
               "decoded": "F4",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458813
             }
           ],
-          "position": 4,
-          "rendered": "&kp F4"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458814,
+          "decoded": "&kp F4",
+          "param1": 458813,
           "param2": 0,
-          "params": [
+          "position": 4
+        },
+        {
+          "arguments": [
             {
               "decoded": "F5",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458814
             }
           ],
-          "position": 5,
-          "rendered": "&kp F5"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458815,
+          "decoded": "&kp F5",
+          "param1": 458814,
           "param2": 0,
-          "params": [
+          "position": 5
+        },
+        {
+          "arguments": [
             {
               "decoded": "F6",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458815
             }
           ],
-          "position": 6,
-          "rendered": "&kp F6"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458816,
+          "decoded": "&kp F6",
+          "param1": 458815,
           "param2": 0,
-          "params": [
+          "position": 6
+        },
+        {
+          "arguments": [
             {
               "decoded": "F7",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458816
             }
           ],
-          "position": 7,
-          "rendered": "&kp F7"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458817,
+          "decoded": "&kp F7",
+          "param1": 458816,
           "param2": 0,
-          "params": [
+          "position": 7
+        },
+        {
+          "arguments": [
             {
               "decoded": "F8",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458817
             }
           ],
-          "position": 8,
-          "rendered": "&kp F8"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458818,
+          "decoded": "&kp F8",
+          "param1": 458817,
           "param2": 0,
-          "params": [
+          "position": 8
+        },
+        {
+          "arguments": [
             {
               "decoded": "F9",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458818
             }
           ],
-          "position": 9,
-          "rendered": "&kp F9"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458819,
+          "decoded": "&kp F9",
+          "param1": 458818,
           "param2": 0,
-          "params": [
+          "position": 9
+        },
+        {
+          "arguments": [
             {
               "decoded": "F10",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458819
             }
           ],
-          "position": 10,
-          "rendered": "&kp F10"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458820,
+          "decoded": "&kp F10",
+          "param1": 458819,
           "param2": 0,
-          "params": [
+          "position": 10
+        },
+        {
+          "arguments": [
             {
               "decoded": "F11",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458820
             }
           ],
-          "position": 11,
-          "rendered": "&kp F11"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 12,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 151453716,
+          "decoded": "&kp F11",
+          "param1": 458820,
           "param2": 0,
-          "params": [
+          "position": 11
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 12
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LG(Q))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 151453716
             }
           ],
-          "position": 13,
-          "rendered": "&kp LC(LG(Q))"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 14,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 168230945,
+          "decoded": "&kp LC(LG(Q))",
+          "param1": 151453716,
           "param2": 0,
-          "params": [
+          "position": 13
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 14
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(LG(N4))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 168230945
             }
           ],
-          "position": 15,
-          "rendered": "&kp LS(LG(N4))"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 16,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 17,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013237,
+          "decoded": "&kp LS(LG(N4))",
+          "param1": 168230945,
           "param2": 0,
-          "params": [
+          "position": 15
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 16
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 17
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(GRAVE)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013237
             }
           ],
-          "position": 18,
-          "rendered": "&kp LS(GRAVE)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458799,
+          "decoded": "&kp LS(GRAVE)",
+          "param1": 34013237,
           "param2": 0,
-          "params": [
+          "position": 18
+        },
+        {
+          "arguments": [
             {
               "decoded": "LBKT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458799
             }
           ],
-          "position": 19,
-          "rendered": "&kp LBKT"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458800,
+          "decoded": "&kp LBKT",
+          "param1": 458799,
           "param2": 0,
-          "params": [
+          "position": 19
+        },
+        {
+          "arguments": [
             {
               "decoded": "RBKT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458800
             }
           ],
-          "position": 20,
-          "rendered": "&kp RBKT"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013231,
+          "decoded": "&kp RBKT",
+          "param1": 458800,
           "param2": 0,
-          "params": [
+          "position": 20
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(LBKT)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013231
             }
           ],
-          "position": 21,
-          "rendered": "&kp LS(LBKT)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013232,
+          "decoded": "&kp LS(LBKT)",
+          "param1": 34013231,
           "param2": 0,
-          "params": [
+          "position": 21
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(RBKT)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013232
             }
           ],
-          "position": 22,
-          "rendered": "&kp LS(RBKT)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458821,
+          "decoded": "&kp LS(RBKT)",
+          "param1": 34013232,
           "param2": 0,
-          "params": [
+          "position": 22
+        },
+        {
+          "arguments": [
             {
               "decoded": "F12",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458821
             }
           ],
-          "position": 23,
-          "rendered": "&kp F12"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 24,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458793,
+          "decoded": "&kp F12",
+          "param1": 458821,
           "param2": 0,
-          "params": [
+          "position": 23
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 24
+        },
+        {
+          "arguments": [
             {
               "decoded": "ESC",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458793
             }
           ],
-          "position": 25,
-          "rendered": "&kp ESC"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 235339820,
+          "decoded": "&kp ESC",
+          "param1": 458793,
           "param2": 0,
-          "params": [
+          "position": 25
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(LA(LG(SPACE)))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 235339820
             }
           ],
-          "position": 26,
-          "rendered": "&kp LS(LA(LG(SPACE)))"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 185008161,
+          "decoded": "&kp LS(LA(LG(SPACE)))",
+          "param1": 235339820,
           "param2": 0,
-          "params": [
+          "position": 26
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LS(LG(N4)))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 185008161
             }
           ],
-          "position": 27,
-          "rendered": "&kp LC(LS(LG(N4)))"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 17235993,
+          "decoded": "&kp LC(LS(LG(N4)))",
+          "param1": 185008161,
           "param2": 0,
-          "params": [
+          "position": 27
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(V)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 17235993
             }
           ],
-          "position": 28,
-          "rendered": "&kp LC(V)"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 29,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458832,
+          "decoded": "&kp LC(V)",
+          "param1": 17235993,
           "param2": 0,
-          "params": [
+          "position": 28
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 29
+        },
+        {
+          "arguments": [
             {
               "decoded": "LEFT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458832
             }
           ],
-          "position": 30,
-          "rendered": "&kp LEFT"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458834,
+          "decoded": "&kp LEFT",
+          "param1": 458832,
           "param2": 0,
-          "params": [
+          "position": 30
+        },
+        {
+          "arguments": [
             {
               "decoded": "UP",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458834
             }
           ],
-          "position": 31,
-          "rendered": "&kp UP"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458833,
+          "decoded": "&kp UP",
+          "param1": 458834,
           "param2": 0,
-          "params": [
+          "position": 31
+        },
+        {
+          "arguments": [
             {
               "decoded": "DOWN",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458833
             }
           ],
-          "position": 32,
-          "rendered": "&kp DOWN"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458831,
+          "decoded": "&kp DOWN",
+          "param1": 458833,
           "param2": 0,
-          "params": [
+          "position": 32
+        },
+        {
+          "arguments": [
             {
               "decoded": "RIGHT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458831
             }
           ],
-          "position": 33,
-          "rendered": "&kp RIGHT"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458805,
+          "decoded": "&kp RIGHT",
+          "param1": 458831,
           "param2": 0,
-          "params": [
+          "position": 33
+        },
+        {
+          "arguments": [
             {
               "decoded": "GRAVE",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458805
             }
           ],
-          "position": 34,
-          "rendered": "&kp GRAVE"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 35,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 36,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 37,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 38,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 168230946,
+          "decoded": "&kp GRAVE",
+          "param1": 458805,
           "param2": 0,
-          "params": [
+          "position": 34
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 35
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 36
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 37
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 38
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(LG(N5))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 168230946
             }
           ],
-          "position": 39,
-          "rendered": "&kp LS(LG(N5))"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 40,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 41,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 26,
-          "behavior_name": "Transparent",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 42,
-          "rendered": "&trans"
-        },
-        {
-          "behavior_id": 26,
-          "behavior_name": "Transparent",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 43,
-          "rendered": "&trans"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 44,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458801,
+          "decoded": "&kp LS(LG(N5))",
+          "param1": 168230946,
           "param2": 0,
-          "params": [
+          "position": 39
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 40
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 41
+        },
+        {
+          "arguments": [],
+          "behavior_id": 26,
+          "behavior_name": "Transparent",
+          "decoded": "&trans",
+          "param1": 0,
+          "param2": 0,
+          "position": 42
+        },
+        {
+          "arguments": [],
+          "behavior_id": 26,
+          "behavior_name": "Transparent",
+          "decoded": "&trans",
+          "param1": 0,
+          "param2": 0,
+          "position": 43
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 44
+        },
+        {
+          "arguments": [
             {
               "decoded": "BSLH",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458801
             }
           ],
-          "position": 45,
-          "rendered": "&kp BSLH"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013233,
+          "decoded": "&kp BSLH",
+          "param1": 458801,
           "param2": 0,
-          "params": [
+          "position": 45
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(BSLH)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013233
             }
           ],
-          "position": 46,
-          "rendered": "&kp LS(BSLH)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013222,
+          "decoded": "&kp LS(BSLH)",
+          "param1": 34013233,
           "param2": 0,
-          "params": [
+          "position": 46
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N9)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013222
             }
           ],
-          "position": 47,
-          "rendered": "&kp LS(N9)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013223,
+          "decoded": "&kp LS(N9)",
+          "param1": 34013222,
           "param2": 0,
-          "params": [
+          "position": 47
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N0)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013223
             }
           ],
-          "position": 48,
-          "rendered": "&kp LS(N0)"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 49,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458976,
+          "decoded": "&kp LS(N0)",
+          "param1": 34013223,
           "param2": 0,
-          "params": [
+          "position": 48
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 49
+        },
+        {
+          "arguments": [
             {
               "decoded": "LCTRL",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458976
             }
           ],
-          "position": 50,
-          "rendered": "&kp LCTRL"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458978,
+          "decoded": "&kp LCTRL",
+          "param1": 458976,
           "param2": 0,
-          "params": [
+          "position": 50
+        },
+        {
+          "arguments": [
             {
               "decoded": "LALT",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458978
             }
           ],
-          "position": 51,
-          "rendered": "&kp LALT"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458979,
+          "decoded": "&kp LALT",
+          "param1": 458978,
           "param2": 0,
-          "params": [
+          "position": 51
+        },
+        {
+          "arguments": [
             {
               "decoded": "LGUI",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458979
             }
           ],
-          "position": 52,
-          "rendered": "&kp LGUI"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp LGUI",
+          "param1": 458979,
+          "param2": 0,
+          "position": 52
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 53,
-          "rendered": "&trans"
+          "position": 53
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 54,
-          "rendered": "&none"
+          "position": 54
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 55,
-          "rendered": "&none"
+          "position": 55
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 56,
-          "rendered": "&none"
+          "position": 56
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 57,
-          "rendered": "&none"
+          "position": 57
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 58,
-          "rendered": "&trans"
+          "position": 58
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 59,
-          "rendered": "&trans"
+          "position": 59
         }
       ],
       "display_order": 4,
@@ -4427,761 +4422,761 @@
     {
       "bindings": [
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 0,
-          "rendered": "&none"
+          "position": 0
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 1,
-          "rendered": "&none"
+          "position": 1
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 2,
-          "rendered": "&none"
+          "position": 2
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 3,
-          "rendered": "&none"
+          "position": 3
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 4,
-          "rendered": "&none"
+          "position": 4
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 5,
-          "rendered": "&none"
+          "position": 5
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 6,
-          "rendered": "&trans"
+          "position": 6
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 7,
-          "rendered": "&trans"
+          "position": 7
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 8,
-          "rendered": "&trans"
+          "position": 8
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 9,
-          "rendered": "&trans"
+          "position": 9
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 10,
-          "rendered": "&trans"
+          "position": 10
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 11,
-          "rendered": "&trans"
+          "position": 11
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 12,
-          "rendered": "&none"
+          "position": 12
         },
         {
-          "behavior_id": 5,
-          "behavior_name": "Key Press",
-          "param1": 134676510,
-          "param2": 0,
-          "params": [
+          "arguments": [
             {
               "decoded": "LG(N1)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676510
             }
           ],
-          "position": 13,
-          "rendered": "&kp LG(N1)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676511,
+          "decoded": "&kp LG(N1)",
+          "param1": 134676510,
           "param2": 0,
-          "params": [
+          "position": 13
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N2)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676511
             }
           ],
-          "position": 14,
-          "rendered": "&kp LG(N2)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676512,
+          "decoded": "&kp LG(N2)",
+          "param1": 134676511,
           "param2": 0,
-          "params": [
+          "position": 14
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N3)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676512
             }
           ],
-          "position": 15,
-          "rendered": "&kp LG(N3)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676513,
+          "decoded": "&kp LG(N3)",
+          "param1": 134676512,
           "param2": 0,
-          "params": [
+          "position": 15
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N4)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676513
             }
           ],
-          "position": 16,
-          "rendered": "&kp LG(N4)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676514,
+          "decoded": "&kp LG(N4)",
+          "param1": 134676513,
           "param2": 0,
-          "params": [
+          "position": 16
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N5)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676514
             }
           ],
-          "position": 17,
-          "rendered": "&kp LG(N5)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013219,
+          "decoded": "&kp LG(N5)",
+          "param1": 134676514,
           "param2": 0,
-          "params": [
+          "position": 17
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N6)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013219
             }
           ],
-          "position": 18,
-          "rendered": "&kp LS(N6)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013220,
+          "decoded": "&kp LS(N6)",
+          "param1": 34013219,
           "param2": 0,
-          "params": [
+          "position": 18
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N7)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013220
             }
           ],
-          "position": 19,
-          "rendered": "&kp LS(N7)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013221,
+          "decoded": "&kp LS(N7)",
+          "param1": 34013220,
           "param2": 0,
-          "params": [
+          "position": 19
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N8)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013221
             }
           ],
-          "position": 20,
-          "rendered": "&kp LS(N8)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013222,
+          "decoded": "&kp LS(N8)",
+          "param1": 34013221,
           "param2": 0,
-          "params": [
+          "position": 20
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N9)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013222
             }
           ],
-          "position": 21,
-          "rendered": "&kp LS(N9)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013223,
+          "decoded": "&kp LS(N9)",
+          "param1": 34013222,
           "param2": 0,
-          "params": [
+          "position": 21
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(N0)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013223
             }
           ],
-          "position": 22,
-          "rendered": "&kp LS(N0)"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 23,
-          "rendered": "&none"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 24,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676527,
+          "decoded": "&kp LS(N0)",
+          "param1": 34013223,
           "param2": 0,
-          "params": [
+          "position": 22
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 23
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 24
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(LBKT)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676527
             }
           ],
-          "position": 25,
-          "rendered": "&kp LG(LBKT)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676528,
+          "decoded": "&kp LG(LBKT)",
+          "param1": 134676527,
           "param2": 0,
-          "params": [
+          "position": 25
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(RBKT)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676528
             }
           ],
-          "position": 26,
-          "rendered": "&kp LG(RBKT)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 50790443,
+          "decoded": "&kp LG(RBKT)",
+          "param1": 134676528,
           "param2": 0,
-          "params": [
+          "position": 26
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(LS(TAB))",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 50790443
             }
           ],
-          "position": 27,
-          "rendered": "&kp LC(LS(TAB))"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 17236011,
+          "decoded": "&kp LC(LS(TAB))",
+          "param1": 50790443,
           "param2": 0,
-          "params": [
+          "position": 27
+        },
+        {
+          "arguments": [
             {
               "decoded": "LC(TAB)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 17236011
             }
           ],
-          "position": 28,
-          "rendered": "&kp LC(TAB)"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 29,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 34013230,
+          "decoded": "&kp LC(TAB)",
+          "param1": 17236011,
           "param2": 0,
-          "params": [
+          "position": 28
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 29
+        },
+        {
+          "arguments": [
             {
               "decoded": "LS(EQUAL)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 34013230
             }
           ],
-          "position": 30,
-          "rendered": "&kp LS(EQUAL)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458782,
+          "decoded": "&kp LS(EQUAL)",
+          "param1": 34013230,
           "param2": 0,
-          "params": [
+          "position": 30
+        },
+        {
+          "arguments": [
             {
               "decoded": "N1",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458782
             }
           ],
-          "position": 31,
-          "rendered": "&kp N1"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458783,
+          "decoded": "&kp N1",
+          "param1": 458782,
           "param2": 0,
-          "params": [
+          "position": 31
+        },
+        {
+          "arguments": [
             {
               "decoded": "N2",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458783
             }
           ],
-          "position": 32,
-          "rendered": "&kp N2"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458784,
+          "decoded": "&kp N2",
+          "param1": 458783,
           "param2": 0,
-          "params": [
+          "position": 32
+        },
+        {
+          "arguments": [
             {
               "decoded": "N3",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458784
             }
           ],
-          "position": 33,
-          "rendered": "&kp N3"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458785,
+          "decoded": "&kp N3",
+          "param1": 458784,
           "param2": 0,
-          "params": [
+          "position": 33
+        },
+        {
+          "arguments": [
             {
               "decoded": "N4",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458785
             }
           ],
-          "position": 34,
-          "rendered": "&kp N4"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458786,
+          "decoded": "&kp N4",
+          "param1": 458785,
           "param2": 0,
-          "params": [
+          "position": 34
+        },
+        {
+          "arguments": [
             {
               "decoded": "N5",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458786
             }
           ],
-          "position": 35,
-          "rendered": "&kp N5"
-        },
-        {
-          "behavior_id": 22,
-          "behavior_name": "None",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 36,
-          "rendered": "&none"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676515,
+          "decoded": "&kp N5",
+          "param1": 458786,
           "param2": 0,
-          "params": [
+          "position": 35
+        },
+        {
+          "arguments": [],
+          "behavior_id": 22,
+          "behavior_name": "None",
+          "decoded": "&none",
+          "param1": 0,
+          "param2": 0,
+          "position": 36
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N6)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676515
             }
           ],
-          "position": 37,
-          "rendered": "&kp LG(N6)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676516,
+          "decoded": "&kp LG(N6)",
+          "param1": 134676515,
           "param2": 0,
-          "params": [
+          "position": 37
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N7)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676516
             }
           ],
-          "position": 38,
-          "rendered": "&kp LG(N7)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676517,
+          "decoded": "&kp LG(N7)",
+          "param1": 134676516,
           "param2": 0,
-          "params": [
+          "position": 38
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N8)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676517
             }
           ],
-          "position": 39,
-          "rendered": "&kp LG(N8)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676518,
+          "decoded": "&kp LG(N8)",
+          "param1": 134676517,
           "param2": 0,
-          "params": [
+          "position": 39
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N9)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676518
             }
           ],
-          "position": 40,
-          "rendered": "&kp LG(N9)"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 134676519,
+          "decoded": "&kp LG(N9)",
+          "param1": 134676518,
           "param2": 0,
-          "params": [
+          "position": 40
+        },
+        {
+          "arguments": [
             {
               "decoded": "LG(N0)",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 134676519
             }
           ],
-          "position": 41,
-          "rendered": "&kp LG(N0)"
-        },
-        {
-          "behavior_id": 26,
-          "behavior_name": "Transparent",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 42,
-          "rendered": "&trans"
-        },
-        {
-          "behavior_id": 26,
-          "behavior_name": "Transparent",
-          "param1": 0,
-          "param2": 0,
-          "params": [],
-          "position": 43,
-          "rendered": "&trans"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458798,
+          "decoded": "&kp LG(N0)",
+          "param1": 134676519,
           "param2": 0,
-          "params": [
+          "position": 41
+        },
+        {
+          "arguments": [],
+          "behavior_id": 26,
+          "behavior_name": "Transparent",
+          "decoded": "&trans",
+          "param1": 0,
+          "param2": 0,
+          "position": 42
+        },
+        {
+          "arguments": [],
+          "behavior_id": 26,
+          "behavior_name": "Transparent",
+          "decoded": "&trans",
+          "param1": 0,
+          "param2": 0,
+          "position": 43
+        },
+        {
+          "arguments": [
             {
               "decoded": "EQUAL",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458798
             }
           ],
-          "position": 44,
-          "rendered": "&kp EQUAL"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458787,
+          "decoded": "&kp EQUAL",
+          "param1": 458798,
           "param2": 0,
-          "params": [
+          "position": 44
+        },
+        {
+          "arguments": [
             {
               "decoded": "N6",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458787
             }
           ],
-          "position": 45,
-          "rendered": "&kp N6"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458788,
+          "decoded": "&kp N6",
+          "param1": 458787,
           "param2": 0,
-          "params": [
+          "position": 45
+        },
+        {
+          "arguments": [
             {
               "decoded": "N7",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458788
             }
           ],
-          "position": 46,
-          "rendered": "&kp N7"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458789,
+          "decoded": "&kp N7",
+          "param1": 458788,
           "param2": 0,
-          "params": [
+          "position": 46
+        },
+        {
+          "arguments": [
             {
               "decoded": "N8",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458789
             }
           ],
-          "position": 47,
-          "rendered": "&kp N8"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458790,
+          "decoded": "&kp N8",
+          "param1": 458789,
           "param2": 0,
-          "params": [
+          "position": 47
+        },
+        {
+          "arguments": [
             {
               "decoded": "N9",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458790
             }
           ],
-          "position": 48,
-          "rendered": "&kp N9"
-        },
-        {
           "behavior_id": 5,
           "behavior_name": "Key Press",
-          "param1": 458791,
+          "decoded": "&kp N9",
+          "param1": 458790,
           "param2": 0,
-          "params": [
+          "position": 48
+        },
+        {
+          "arguments": [
             {
               "decoded": "N0",
-              "kind": "PARAMETER_KIND_HID_USAGE",
+              "kind": "ARGUMENT_KIND_HID_USAGE",
               "name": "Key",
               "raw": 458791
             }
           ],
-          "position": 49,
-          "rendered": "&kp N0"
+          "behavior_id": 5,
+          "behavior_name": "Key Press",
+          "decoded": "&kp N0",
+          "param1": 458791,
+          "param2": 0,
+          "position": 49
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 50,
-          "rendered": "&none"
+          "position": 50
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 51,
-          "rendered": "&none"
+          "position": 51
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 52,
-          "rendered": "&none"
+          "position": 52
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 53,
-          "rendered": "&none"
+          "position": 53
         },
         {
+          "arguments": [],
           "behavior_id": 22,
           "behavior_name": "None",
+          "decoded": "&none",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 54,
-          "rendered": "&none"
+          "position": 54
         },
         {
+          "arguments": [],
           "behavior_id": 13,
           "behavior_name": "Reset",
+          "decoded": "&sys_reset",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 55,
-          "rendered": "&sys_reset"
+          "position": 55
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 56,
-          "rendered": "&trans"
+          "position": 56
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 57,
-          "rendered": "&trans"
+          "position": 57
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 58,
-          "rendered": "&trans"
+          "position": 58
         },
         {
+          "arguments": [],
           "behavior_id": 26,
           "behavior_name": "Transparent",
+          "decoded": "&trans",
           "param1": 0,
           "param2": 0,
-          "params": [],
-          "position": 59,
-          "rendered": "&trans"
+          "position": 59
         }
       ],
       "display_order": 5,
@@ -5797,5 +5792,10 @@
       }
     ],
     "name": "Sofle"
+  },
+  "metadata": {
+    "captured_at": "2026-11-10T07:17:48.249126Z",
+    "studio_messages_revision": "6cb4c283e76209d59c45fbcb218800cd19e9339d",
+    "tool_version": "0.1.0"
   }
 }

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keymap-csrf" content="__CSRF_TOKEN__">
+<title>zmk-keymap — Studio Keymap Workspace</title>
+<style>
+__APP_CSS__
+</style>
+</head>
+<body>
+<div class="drop-overlay">Drop a ZMK keymap snapshot (.json) to inspect</div>
+<div class="app" id="app">
+  <aside class="sidebar">
+    <div class="brand" id="brand-header">
+      <span class="brand-title">zmk-keymap</span>
+      <div class="seg" title="Color theme">
+        <button type="button" data-theme-btn="auto" class="active">Auto</button>
+        <button type="button" data-theme-btn="light">☀</button>
+        <button type="button" data-theme-btn="dark">☾</button>
+      </div>
+    </div>
+
+    <section class="side-section">
+      <h3>Keyboard</h3>
+      <div class="live-card" id="live-card" role="button" tabindex="0">
+        <div class="live-card-top">
+          <div class="live-card-main">
+            <div class="live-title-row">
+              <span class="status-dot busy" id="live-dot"></span>
+              <span class="live-name" id="live-device-name">Keyboard</span>
+            </div>
+            <div class="live-sub" id="live-status-text">Reading live keymap…</div>
+          </div>
+          <button type="button" class="icon-btn" id="btn-refresh-live" title="Refresh live keymap from keyboard" aria-label="Refresh live keymap"><span>↻</span></button>
+        </div>
+        <div class="live-specs" id="live-specs" style="display:none"></div>
+      </div>
+      <p class="live-hint" id="live-hint" style="display:none"></p>
+    </section>
+
+    <section class="side-section">
+      <h3>Backup</h3>
+      <button type="button" class="primary full-btn" id="btn-backup">+ Take a snapshot now</button>
+      <ul class="file-list" id="list-snapshots" style="margin-top:8px"></ul>
+      <button type="button" class="ghost-more" id="btn-toggle-more" style="display:none"></button>
+    </section>
+
+    <section class="side-section">
+      <h3>Restore</h3>
+      <input type="file" id="file-input" accept=".json,application/json" style="display:none">
+      <button type="button" class="full-btn" id="btn-import-json">Import Snapshot JSON…</button>
+      <ul class="file-list" id="list-imported" style="margin-top:6px;display:none"></ul>
+      <ul class="file-list" id="list-undo" style="margin-top:6px;display:none"></ul>
+      <p class="side-caption">Or select any backup above to preview &amp; restore.</p>
+    </section>
+  </aside>
+
+  <main class="workspace">
+    <div id="alert-area"></div>
+
+    <div id="empty-stage" class="card" style="padding:28px 24px">
+      <h2 style="font-size:.85rem;margin-bottom:8px" id="empty-heading">Connecting to keyboard…</h2>
+      <p style="color:var(--dim);margin:0 0 14px;max-width:60ch" id="empty-body">
+        Unlock ZMK Studio on your keyboard and click <b>↻</b> on the left, take a new snapshot,
+        or import a saved <code>.json</code> snapshot to inspect.
+      </p>
+    </div>
+
+    <div id="doc-stage" style="display:none">
+      <header class="top-header">
+        <div>
+          <div class="doc-heading">
+            <h1 id="doc-title">Keymap</h1>
+            <span class="badge" id="doc-badge">SNAPSHOT</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button type="button" id="btn-compare-toggle">Compare…</button>
+          <button type="button" id="btn-export-html" title="Download standalone zero-JS HTML">Export HTML</button>
+          <button type="button" class="primary" id="btn-plan-restore">Restore to Keyboard…</button>
+        </div>
+      </header>
+
+      <div id="compare-bar" class="banner" style="display:none">
+        <div class="banner-row">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <b>Offline Compare:</b>
+            <span style="color:var(--dim);font-size:.8rem">Baseline</span>
+            <select id="compare-baseline-select"></select>
+            <span style="color:var(--dim);font-size:.8rem">&rarr; Target: current view</span>
+          </div>
+          <div style="display:flex;gap:6px">
+            <button type="button" class="primary sm" id="btn-run-offline-diff">Diff Snapshots</button>
+            <button type="button" class="sm" id="btn-close-compare">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="diff-banner" class="banner diff" style="display:none"></div>
+
+      <div class="stage-bar">
+        <nav class="layer-tabs" id="layer-tabs" aria-label="Keymap layers"></nav>
+        <div class="view-controls">
+          <div class="seg" role="group" aria-label="Legend style">
+            <button type="button" id="btn-mode-friendly" class="active" title="Human-friendly symbols (shortcut: R)">Friendly</button>
+            <button type="button" id="btn-mode-raw" title="Exact ZMK tokens (shortcut: R)">Raw ZMK</button>
+          </div>
+          <div class="seg" role="group" aria-label="Layer layout">
+            <button type="button" id="btn-layout-single" class="active" title="One layer with tabs (shortcut: A)">Single Layer</button>
+            <button type="button" id="btn-layout-all" title="Stack all layers (shortcut: A)">All Layers</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="boards-container"></div>
+
+      <ul class="legend-strip">
+        <li><i class="sw-tap"></i>tap / press</li>
+        <li><i class="sw-hold"></i>held (mod-tap, layer-tap)</li>
+        <li><i class="sw-trans"></i><code>&amp;trans</code> falls through</li>
+        <li><code>✕</code> <code>&amp;none</code> dead</li>
+        <li id="legend-diff-item" style="display:none"><i class="sw-diff"></i>changed key (<code>− before</code> / <code>+ after</code>)</li>
+        <li class="kbd-hint">Click any key to inspect across all layers · Keys <code>1-9</code> switch layers · <code>R</code> raw · <code>A</code> all layers</li>
+      </ul>
+
+      <div class="card" id="changes-card" style="display:none">
+        <h2 id="changes-card-title">Changed Bindings</h2>
+        <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Layer</th><th>Pos</th><th>Before</th><th>After</th></tr></thead>
+            <tbody id="changes-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <details class="card" id="lower-details">
+        <summary style="cursor:pointer;font-weight:650;font-size:.78rem;color:var(--dim);text-transform:uppercase;letter-spacing:.06em">
+          Layer as Text &amp; Firmware Behavior Table
+        </summary>
+        <div style="margin-top:12px;display:grid;gap:14px">
+          <div>
+            <h2>Active Layer as Text</h2>
+            <pre class="text-dump" id="layer-text-dump"></pre>
+          </div>
+          <div>
+            <h2 id="behavior-table-heading">Behavior Table</h2>
+            <div style="max-height:300px;overflow:auto">
+              <table>
+                <thead><tr><th>ID</th><th>Reported Name</th><th>Parameter Sets</th></tr></thead>
+                <tbody id="behaviors-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <aside class="inspector" id="inspector" aria-label="Key inspector">
+    <div class="insp-empty" id="insp-empty">
+      <h3>Key Inspector</h3>
+      <div class="insp-box">
+        <p class="insp-empty-note">
+          Click any key on the board to inspect its ZMK binding, raw 32-bit parameters,
+          and behavior across all layers.
+        </p>
+      </div>
+      <div class="insp-box">
+        <h4>Shortcuts</h4>
+        <div class="kv-row"><span>Switch layer</span><code>1 – 9</code></div>
+        <div class="kv-row"><span>Friendly / Raw ZMK</span><code>R</code></div>
+        <div class="kv-row"><span>Single / All layers</span><code>A</code></div>
+        <div class="kv-row"><span>Prev / Next key</span><code>&larr; / &rarr;</code></div>
+        <div class="kv-row"><span>Clear selection</span><code>Esc</code></div>
+      </div>
+    </div>
+
+    <div class="insp-content" id="insp-content">
+      <div class="insp-head">
+        <div>
+          <div class="insp-title" id="insp-title">Position 0</div>
+          <div class="kbd-hint" id="insp-geom"></div>
+        </div>
+        <div style="display:flex;gap:4px">
+          <button type="button" class="sm" id="insp-prev" title="Previous key (←)">&larr;</button>
+          <button type="button" class="sm" id="insp-next" title="Next key (→)">&rarr;</button>
+          <button type="button" class="sm" id="insp-close" title="Clear selection (Esc)">&times;</button>
+        </div>
+      </div>
+
+      <div class="insp-box" id="insp-diff-box" style="display:none">
+        <h4>Pending Change on This Layer</h4>
+        <div class="kv-row"><span>Before</span><code id="insp-diff-before"></code></div>
+        <div class="kv-row"><span>After</span><code id="insp-diff-after"></code></div>
+      </div>
+
+      <div class="insp-box">
+        <h4 id="insp-layer-heading">Current Layer Binding</h4>
+        <div class="expr-pill" style="margin-bottom:8px">
+          <span id="insp-rendered"></span>
+          <button type="button" class="sm" id="insp-copy">Copy</button>
+        </div>
+        <div class="kv-row"><span>Friendly</span><code id="insp-friendly"></code></div>
+        <div class="kv-row"><span>Behavior</span><code id="insp-behavior"></code></div>
+        <div id="insp-params" style="margin-top:6px;border-top:1px solid var(--line);padding-top:6px"></div>
+      </div>
+
+      <div class="insp-box">
+        <h4>Position Across All Layers</h4>
+        <table>
+          <thead><tr><th>Layer</th><th>Friendly</th><th>Raw ZMK</th></tr></thead>
+          <tbody id="insp-all-layers"></tbody>
+        </table>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script nonce="__SCRIPT_NONCE__">
+__APP_JS__
+</script>
+</body>
+</html>

@@ -16,40 +16,21 @@ from collections.abc import Sequence
 import pathlib
 import sys
 
-from .model import KeymapSnapshot, from_json
-from .render import FORMATS, svg
+from ._common import CliError, load_snapshot_arg, utf8_stdio
+from ..keymap_renderer import KeymapRenderer
 
-#: Extension to use when --out is a directory, paired 1:1 with render.FORMATS.
+#: Extension to use when --out is a directory, paired 1:1 with KeymapRenderer.FORMATS.
 _SUFFIX = {"text": ".txt", "html": ".html", "svg": ".svg"}
 
 
-def _utf8_stdio() -> None:
-    for stream in (sys.stdout, sys.stderr):
-        enc = getattr(stream, "encoding", None) or ""
-        if enc.lower().replace("-", "") != "utf8" and hasattr(stream, "reconfigure"):
-            stream.reconfigure(encoding="utf-8")
-
-
-def _load(path: pathlib.Path) -> KeymapSnapshot:
-    """Parse a committed snapshot back into the message it was written from."""
-    try:
-        raw = path.read_text(encoding="utf-8")
-    except OSError as exc:
-        raise SystemExit(f"cannot read {path}: {exc.strerror}")
-    try:
-        return from_json(raw)
-    except ValueError as exc:
-        raise SystemExit(f"{path} is {exc}")
-
-
 def main(argv: Sequence[str] | None = None) -> int:
-    _utf8_stdio()
+    utf8_stdio()
     parser = argparse.ArgumentParser(
         prog="keymap-render",
         description="Render a saved keymap snapshot. Never touches a keyboard.")
     parser.add_argument("snapshot", type=pathlib.Path,
                         help="a JSON snapshot written by keymap-backup")
-    parser.add_argument("-f", "--format", choices=sorted(FORMATS), default="html",
+    parser.add_argument("-f", "--format", choices=KeymapRenderer.FORMATS, default="html",
                         help="output format (default: html)")
     parser.add_argument("-o", "--out", type=pathlib.Path,
                         help="write here instead of stdout")
@@ -62,28 +43,38 @@ def main(argv: Sequence[str] | None = None) -> int:
         parser.error("--layer applies to --format svg; the other formats "
                      "render every layer")
 
-    snapshot = _load(args.snapshot)
+    try:
+        snapshot = load_snapshot_arg(args.snapshot)
+    except CliError as exc:
+        print(f"{exc}", file=sys.stderr)
+        return 1
     if not snapshot.layers:
-        raise SystemExit(f"{args.snapshot} has no layers to render")
+        print(f"{args.snapshot} has no layers to render", file=sys.stderr)
+        return 1
 
     try:
-        output = (
-            svg(snapshot, args.layer)
-            if args.layer is not None
-            else FORMATS[args.format](snapshot)
-        )
+        output = KeymapRenderer(snapshot).render(args.format, layer_id=args.layer)
     except ValueError as exc:
-        raise SystemExit(str(exc))
+        print(f"{exc}", file=sys.stderr)
+        return 1
 
     if args.out is None:
-        sys.stdout.write(output if output.endswith("\n") else output + "\n")
+        try:
+            sys.stdout.write(output if output.endswith("\n") else output + "\n")
+            sys.stdout.flush()
+        except BrokenPipeError:
+            return 0
         return 0
 
     path: pathlib.Path = args.out
     if path.is_dir():
         path = path / (args.snapshot.stem + _SUFFIX[args.format])
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(output, encoding="utf-8")
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(output, encoding="utf-8")
+    except OSError as exc:
+        print(f"cannot write {path}: {exc.strerror or exc}", file=sys.stderr)
+        return 1
     print(f"{snapshot.device.name}: {len(snapshot.layers)} layers -> {path}")
     return 0
 

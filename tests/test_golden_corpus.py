@@ -14,7 +14,7 @@ import pathlib
 
 import pytest
 
-from zmk_keymap import decode, from_json, model, to_json
+from zmk_keymap.keymap_snapshot import KeymapSnapshot, decode_binding
 
 DATA = pathlib.Path(__file__).resolve().parent / "data"
 
@@ -28,35 +28,44 @@ def test_the_corpus_is_not_empty() -> None:
 
 
 @pytest.fixture(scope="module", params=CORPORA, ids=lambda p: p.stem)
-def snapshot(request: pytest.FixtureRequest) -> model.KeymapSnapshot:
-    return from_json(request.param.read_text(encoding="utf-8"))
+def snapshot(request: pytest.FixtureRequest) -> KeymapSnapshot:
+    return KeymapSnapshot.from_json(request.param.read_text(encoding="utf-8"))
 
 
 @pytest.mark.parametrize("path", CORPORA, ids=lambda p: p.stem)
 def test_round_trips_through_the_committed_json(path: pathlib.Path) -> None:
     """A corpus file is byte-for-byte what `to_json` would write for it."""
     raw = path.read_text(encoding="utf-8")
-    assert json.loads(to_json(from_json(raw))) == json.loads(raw)
+    assert json.loads(KeymapSnapshot.from_json(raw).to_json()) == json.loads(raw)
 
 
 def test_every_binding_resolves_to_a_behavior_in_the_table(snapshot) -> None:
     """The property that makes the table worth shipping inside the snapshot."""
     known = {b.id for b in snapshot.behaviors}
     unresolved = {
-        b.behavior_id for layer in snapshot.layers for b in layer.bindings
+        b.behavior_id
+        for layer in snapshot.layers
+        for b in layer.bindings
         if b.behavior_id not in known
     }
     assert not unresolved
 
 
 def test_every_binding_still_decodes(snapshot) -> None:
-    """No raw parameter in a real keymap sends the decoder to an unknown behavior."""
+    """Every stored binding matches `decode_binding` bit-for-bit on real keymaps."""
     table = {b.id: b for b in snapshot.behaviors}
     for layer in snapshot.layers:
         for bound in layer.bindings:
-            rendered = decode.binding(table[bound.behavior_id], bound.param1, bound.param2)
-            assert rendered.text
-            assert all(p.decoded for p in rendered.params)
+            redecoded = decode_binding(
+                table[bound.behavior_id],
+                bound.param1,
+                bound.param2,
+                position=bound.position,
+                behavior_id=bound.behavior_id,
+            )
+            assert redecoded == bound
+            assert redecoded.decoded
+            assert all(arg.decoded for arg in redecoded.arguments)
 
 
 def test_no_binding_renders_as_a_bare_hex_blob(snapshot) -> None:
@@ -65,9 +74,11 @@ def test_no_binding_renders_as_a_bare_hex_blob(snapshot) -> None:
     gave_up = []
     for layer in snapshot.layers:
         for bound in layer.bindings:
-            rendered = decode.binding(table[bound.behavior_id], bound.param1, bound.param2)
-            if "0x" in rendered.text:
-                gave_up.append(rendered.text)
+            redecoded = decode_binding(
+                table[bound.behavior_id], bound.param1, bound.param2
+            )
+            if "0x" in redecoded.decoded:
+                gave_up.append(redecoded.decoded)
     assert not gave_up, f"undecoded parameters: {sorted(set(gave_up))}"
 
 

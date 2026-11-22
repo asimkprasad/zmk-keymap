@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import pytest
 
-import zmk_keymap as backup
+import zmk_keymap.live_keyboard as live_keyboard
 from zmk_studio_client import READS, Keyboard, Rpc, Wire
 import zmk_studio_client.wire as wire
 from zmk_studio_client._pb import behaviors_pb2, core_pb2, studio_pb2
@@ -97,13 +97,13 @@ class FakeConnection:
 def keyboard(monkeypatch) -> FakeConnection:
     """The real session, over a fake connection. Only the bottom floor is replaced."""
     fake = FakeConnection()
-    monkeypatch.setattr(backup, "connect", lambda: Keyboard(Rpc(Wire(fake))))
+    monkeypatch.setattr(live_keyboard, "connect", lambda: Keyboard(Rpc(Wire(fake))))
     return fake
 
 
 @pytest.fixture
 def snapshot(keyboard):
-    return backup.dump()
+    return live_keyboard.read_keyboard()
 
 
 def test_only_reads_are_sent(keyboard, snapshot) -> None:
@@ -113,14 +113,14 @@ def test_only_reads_are_sent(keyboard, snapshot) -> None:
 
 
 def test_bindings_decode_through_the_behavior_table(snapshot) -> None:
-    rendered = [b.rendered for b in snapshot.layers[0].bindings]
-    assert rendered == ["&kp C", "&mt LG(C) C", "&ext_power 2"]
+    decoded = [b.decoded for b in snapshot.layers[0].bindings]
+    assert decoded == ["&kp C", "&mt LG(C) C", "&ext_power 2"]
 
 
 def test_each_binding_keeps_its_raw_parameters(snapshot) -> None:
     mod_tap = snapshot.layers[0].bindings[1]
     assert (mod_tap.param1, mod_tap.param2) == (0x08070006, 0x00070006)
-    assert [(p.name, p.decoded) for p in mod_tap.params] == [("Key", "LG(C)"), ("Key", "C")]
+    assert [(a.name, a.decoded) for a in mod_tap.arguments] == [("Key", "LG(C)"), ("Key", "C")]
 
 
 def test_the_active_layout_is_identified_not_just_named(snapshot) -> None:
@@ -141,6 +141,6 @@ def test_the_serial_is_a_digest_by_default(snapshot) -> None:
 
 
 def test_json_is_deterministic(snapshot) -> None:
-    first = backup.to_json(snapshot)
-    assert first == backup.to_json(snapshot)
-    assert '"rendered": "&mt LG(C) C"' in first
+    first = snapshot.to_json()
+    assert first == snapshot.to_json()
+    assert '"decoded": "&mt LG(C) C"' in first

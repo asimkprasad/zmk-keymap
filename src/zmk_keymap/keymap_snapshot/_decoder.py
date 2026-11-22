@@ -1,4 +1,4 @@
-"""Turning raw bindings into something a person can read.
+"""Internal ZMK binding parameter decoding owned by `zmk_keymap.keymap_snapshot`.
 
 The keyboard reports each binding as a behavior id and two 32-bit parameters. A
 parameter packs a modifier mask, a HID usage page and a usage into one integer:
@@ -11,19 +11,24 @@ it takes and what kind of value each holds, so this module asks the metadata rat
 than hardcoding one branch per behavior. Key Press, Mod-Tap and Layer-Tap need no
 special cases; nor does a keymap-defined behavior nobody here has heard of.
 
-One thing the protocol never reports is the devicetree label - it says
-"Bluetooth", not `&bt`. _SIGILS is that translation and nothing else, which is why
-it is a flat table of names rather than a branch with logic in it.
-
-A behavior that reports no metadata, or whose metadata admits none of the values
-actually bound, falls back to passing the raw integers through. That is honest
-about not knowing, and it keeps one unrecognised binding from costing the dump.
+Constructs protobuf `KeyBinding` and `BehaviorArgument` messages directly so there
+are no intermediate wrapper dataclasses.
 """
 from __future__ import annotations
 
 from collections.abc import Iterable
-import dataclasses
 import typing
+
+from ..proto.keymap_snapshot_pb2 import (
+    ARGUMENT_KIND_CONSTANT,
+    ARGUMENT_KIND_HID_USAGE,
+    ARGUMENT_KIND_LAYER_ID,
+    ARGUMENT_KIND_RANGE,
+    ARGUMENT_KIND_UNDECLARED,
+    ArgumentKind,
+    BehaviorArgument,
+    KeyBinding,
+)
 
 #: bit mask -> the modifier-function spelling ZMK uses, e.g. LG(C) for Cmd+C.
 _MODIFIERS = [
@@ -58,7 +63,7 @@ _CONSUMER: dict[int, str] = {
 
 
 def keycode(param: int) -> str:
-    """Render one packed parameter, e.g. ``LG(C)`` or ``RET``."""
+    """Decode one packed HID usage parameter, e.g. ``LG(C)`` or ``RET``."""
     param = int(param or 0)
     mods = (param >> 24) & 0xFF
     page = (param >> 16) & 0xFF
@@ -105,28 +110,6 @@ _SIGILS: dict[str, str] = {
     "Studio Unlock": "studio_unlock",
 }
 
-#: Parameter kinds, spelled as ParameterKind in the snapshot schema.
-CONSTANT, RANGE, HID_USAGE, LAYER_ID, UNDECLARED = (
-    "constant", "range", "hid_usage", "layer_id", "undeclared")
-
-
-@dataclasses.dataclass(frozen=True)
-class Param:
-    """One decoded parameter slot of one binding."""
-
-    name: str
-    raw: int
-    decoded: str
-    kind: str
-
-
-@dataclasses.dataclass(frozen=True)
-class Rendered:
-    """A binding, decoded both as a line to read and as its separate slots."""
-
-    text: str
-    params: tuple[Param, ...]
-
 
 class _BehaviorLike(typing.Protocol):
     @property
@@ -135,7 +118,9 @@ class _BehaviorLike(typing.Protocol):
     def parameter_sets(self) -> Iterable[typing.Any]: ...
 
 
-def _admits(described: Iterable[typing.Any], value: int) -> tuple[str | None, typing.Any]:
+def _admits(
+    described: Iterable[typing.Any], value: int
+) -> tuple[ArgumentKind | None, typing.Any]:
     """Which declared value does `value` satisfy, if any? -> (kind, description).
 
     Constants are checked before the open-ended kinds because they are exact: a
@@ -146,81 +131,104 @@ def _admits(described: Iterable[typing.Any], value: int) -> tuple[str | None, ty
     for description in items:
         kind = description.WhichOneof("kind")
         if kind == "constant" and description.constant == value:
-            return CONSTANT, description
+            return ARGUMENT_KIND_CONSTANT, description
     for description in items:
         kind = description.WhichOneof("kind")
         if kind == "range" and description.range.min <= value <= description.range.max:
-            return RANGE, description
-        if kind in (HID_USAGE, LAYER_ID):
-            return kind, description
+            return ARGUMENT_KIND_RANGE, description
+        if kind == "hid_usage":
+            return ARGUMENT_KIND_HID_USAGE, description
+        if kind == "layer_id":
+            return ARGUMENT_KIND_LAYER_ID, description
     return None, None
 
 
-def _decode(kind: str, description: typing.Any, raw: int) -> str:
-    """Render one slot's value according to the kind the keyboard declared."""
-    if kind == CONSTANT:
-        # The keyboard's label is all there is: it reports "Select Profile", never
-        # the BT_SEL the keymap would be written with.
+def _decode_slot(kind: ArgumentKind, description: typing.Any, raw: int) -> str:
+    """Decode one slot's raw integer according to the kind the keyboard declared."""
+    if kind == ARGUMENT_KIND_CONSTANT:
         return str(description.name)
-    if kind == HID_USAGE:
+    if kind == ARGUMENT_KIND_HID_USAGE:
         return keycode(raw)
     return str(raw)
 
 
-def _match_set(parameter_set: typing.Any, param1: int, param2: int) -> tuple[Param, ...] | None:
-    """Decode both slots against one declared parameter set, or return None.
-
-    A behavior may declare several alternative sets - Underglow's colour commands
-    take a value where its on/off commands take none - so a set that does not admit
-    the values actually bound is not an error, it is the wrong set.
-    """
-    out: list[Param] = []
-    for described, raw in ((parameter_set.param1, param1), (parameter_set.param2, param2)):
+def _match_set(
+    parameter_set: typing.Any, param1: int, param2: int
+) -> list[BehaviorArgument] | None:
+    """Decode both slots against one declared parameter set, or return None."""
+    out: list[BehaviorArgument] = []
+    for described, raw in (
+        (parameter_set.param1, param1),
+        (parameter_set.param2, param2),
+    ):
         if not described:
-            # The set declares nothing for this slot. A value here means some other
-            # set was meant; zero means the slot is genuinely unused.
             if raw:
                 return None
             continue
         kind, description = _admits(described, raw)
         if kind is None:
             return None
-        out.append(Param(str(description.name), raw, _decode(kind, description, raw), kind))
-    return tuple(out)
+        out.append(
+            BehaviorArgument(
+                name=str(description.name),
+                raw=raw,
+                decoded=_decode_slot(kind, description, raw),
+                kind=kind,
+            )
+        )
+    return out
 
 
-def _undeclared(param1: int, param2: int) -> tuple[Param, ...]:
-    """Slots for a behavior the keyboard described nothing about.
-
-    Trailing zeros are dropped because arity is exactly what is unknown here, and a
-    behavior taking one parameter is far more common than one taking two. A zero in
-    the *first* slot is kept: the second being set proves the first is real.
-    """
+def _undeclared(param1: int, param2: int) -> list[BehaviorArgument]:
+    """Arguments for a behavior the keyboard described nothing about."""
     raw = [param1, param2]
     while raw and not raw[-1]:
         raw.pop()
-    return tuple(Param("", value, str(value), UNDECLARED) for value in raw)
+    return [
+        BehaviorArgument(
+            name="",
+            raw=value,
+            decoded=str(value),
+            kind=ARGUMENT_KIND_UNDECLARED,
+        )
+        for value in raw
+    ]
 
 
-def binding(behavior: _BehaviorLike, param1: int, param2: int) -> Rendered:
-    """Render a binding, using what the keyboard said about its behavior.
-
-    `behavior` is a snapshot Behavior: a display name plus the parameter metadata
-    the keyboard reported for it.
-    """
+def decode_binding(
+    behavior: _BehaviorLike,
+    param1: int,
+    param2: int,
+    *,
+    position: int = 0,
+    behavior_id: int | None = None,
+) -> KeyBinding:
+    """Construct a decoded protobuf `KeyBinding` directly from `behavior` and raw parameters."""
     p1, p2 = int(param1 or 0), int(param2 or 0)
 
-    params: tuple[Param, ...] | None = None
+    arguments: list[BehaviorArgument] | None = None
     for parameter_set in behavior.parameter_sets:
-        params = _match_set(parameter_set, p1, p2)
-        if params is not None:
+        arguments = _match_set(parameter_set, p1, p2)
+        if arguments is not None:
             break
-    if params is None:
-        params = _undeclared(p1, p2)
+    if arguments is None:
+        arguments = _undeclared(p1, p2)
 
     name = behavior.display_name
     sigil = _SIGILS.get(name)
-    rendered = " ".join([f"&{sigil}" if sigil else name] + [p.decoded for p in params])
-    # A behavior with no known devicetree label is wrapped, so a line that is not
-    # keymap syntax cannot be mistaken for a line that is.
-    return Rendered(rendered if sigil else f"<{rendered}>", params)
+    expr = " ".join([f"&{sigil}" if sigil else name] + [arg.decoded for arg in arguments])
+    decoded_expr = expr if sigil else f"<{expr}>"
+    resolved_id = (
+        int(behavior_id)
+        if behavior_id is not None
+        else int(getattr(behavior, "id", 0) or 0)
+    )
+    return KeyBinding(
+        position=position,
+        behavior_id=resolved_id,
+        behavior_name=name,
+        param1=p1,
+        param2=p2,
+        decoded=decoded_expr,
+        arguments=arguments,
+    )
